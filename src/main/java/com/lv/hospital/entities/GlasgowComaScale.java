@@ -10,16 +10,18 @@ public class GlasgowComaScale implements Serializable{
     private Integer eyeOpening;
     private Integer verbalResponse;
     private Integer motorResponse;
+    private Integer pupilResponse;
     private Integer total;
 
     public GlasgowComaScale() {
     }
 
-    public GlasgowComaScale(Long id, Integer eyeOpening, Integer verbalResponse, Integer motorResponse) {
+    public GlasgowComaScale(Long id, Integer eyeOpening, Integer verbalResponse, Integer motorResponse, Integer pupilResponse) {
         this.id = id;
         this.eyeOpening = eyeOpening;
         this.verbalResponse = verbalResponse;
         this.motorResponse = motorResponse;
+        this.pupilResponse = pupilResponse;
         this.total = calculateTotal();
     }
 
@@ -41,6 +43,14 @@ public class GlasgowComaScale implements Serializable{
 
     public Integer getTotal() {
         return total;
+    }
+
+    public Integer getPupilResponse() {
+        return pupilResponse;
+    }
+
+    public void setPupilResponse(Integer pupilResponse) {
+        this.pupilResponse = pupilResponse;
     }
 
     @Override
@@ -69,6 +79,6 @@ public class GlasgowComaScale implements Serializable{
     }
 
     public Integer calculateTotal() {
-        return eyeOpening + verbalResponse + motorResponse;
+        return eyeOpening + verbalResponse + motorResponse - pupilResponse;
     }
 }
