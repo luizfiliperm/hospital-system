@@ -7,14 +7,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
-
+import java.util.ArrayList;
 
 import com.lv.hospital.entities.Patient;
+import com.lv.hospital.services.PatientService;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 
 /**
  * JavaFX App
@@ -41,20 +38,34 @@ public class App extends Application {
 
     public static void main(String[] args) {
 
-        Patient p1 = new Patient(null, "Maria Brown", 17);
+
+        PatientService service = new PatientService();
+
+        Patient p1 = new Patient(null, "Julia Brown", 17);
         Patient p2 = new Patient(null, "Alex Green", 20);
         Patient p3 = new Patient(null, "Bob Grey", 25);
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hospital");
-        EntityManager em = emf.createEntityManager();
+        service.save(p1);
+        service.save(p2);
+        service.save(p3);
 
-        em.getTransaction().begin();
-        em.persist(p1);
-        em.persist(p2);
-        em.persist(p3);
-        em.getTransaction().commit();
+        p1.setAge(18);
+        service.update(p1);
+        
+        ArrayList<Patient> list = (ArrayList<Patient>) service.findAll();
+        list.forEach(System.out::println);
+
+        service.deleteById(3L);
+
+        list = (ArrayList<Patient>) service.findAll();
+
+        list.forEach(System.out::println);
+
+
+        System.out.println("Find by id: " + service.findById(1L));
         System.out.println("OK!");
 
+        service.close();
         // launch(args);
     }
 
