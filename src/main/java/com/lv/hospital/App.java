@@ -10,7 +10,7 @@ import java.io.IOException;
 
 
 
-import com.lv.hospital.entities.Pacient;
+import com.lv.hospital.entities.Patient;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -41,9 +41,9 @@ public class App extends Application {
 
     public static void main(String[] args) {
 
-        Pacient p1 = new Pacient(null, "Maria Brown", 17);
-        Pacient p2 = new Pacient(null, "Alex Green", 20);
-        Pacient p3 = new Pacient(null, "Bob Grey", 25);
+        Patient p1 = new Patient(null, "Maria Brown", 17);
+        Patient p2 = new Patient(null, "Alex Green", 20);
+        Patient p3 = new Patient(null, "Bob Grey", 25);
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hospital");
         EntityManager em = emf.createEntityManager();

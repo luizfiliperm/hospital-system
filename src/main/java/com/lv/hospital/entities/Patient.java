@@ -8,8 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "pacient")
-public class Pacient implements Serializable{
+@Table(name = "patient")
+public class Patient implements Serializable{
     
     private static final long serialVersionUID = 1L;
 
@@ -20,10 +20,10 @@ public class Pacient implements Serializable{
     private String name;
     private Integer age;
     
-    public Pacient() {
+    public Patient() {
     }
     
-    public Pacient(Long id, String name, Integer age) {
+    public Patient(Long id, String name, Integer age) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -69,7 +69,7 @@ public class Pacient implements Serializable{
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Pacient other = (Pacient) obj;
+        Patient other = (Patient) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
