@@ -10,6 +10,12 @@ import java.io.IOException;
 
 
 
+import com.lv.hospital.entities.Pacient;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
 /**
  * JavaFX App
  */
@@ -35,21 +41,21 @@ public class App extends Application {
 
     public static void main(String[] args) {
 
-        // Pacient p1 = new Pacient(null, "Maria Brown", 17);
-        // Pacient p2 = new Pacient(null, "Alex Green", 20);
-        // Pacient p3 = new Pacient(null, "Bob Grey", 25);
+        Pacient p1 = new Pacient(null, "Maria Brown", 17);
+        Pacient p2 = new Pacient(null, "Alex Green", 20);
+        Pacient p3 = new Pacient(null, "Bob Grey", 25);
 
-        // EntityManagerFactory emf = Persistence.createEntityManagerFactory("hospital");
-        // EntityManager em = emf.createEntityManager();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hospital");
+        EntityManager em = emf.createEntityManager();
 
-        // em.getTransaction().begin();
-        // em.persist(p1);
-        // em.persist(p2);
-        // em.persist(p3);
-        // em.getTransaction().commit();
-        // System.out.println("OK!");
+        em.getTransaction().begin();
+        em.persist(p1);
+        em.persist(p2);
+        em.persist(p3);
+        em.getTransaction().commit();
+        System.out.println("OK!");
 
-        launch(args);
+        // launch(args);
     }
 
 }
