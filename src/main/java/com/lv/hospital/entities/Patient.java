@@ -78,4 +78,11 @@ public class Patient implements Serializable{
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Patient [id=" + id + ", name=" + name + ", age=" + age + "]";
+    }
+
+    
+
 }
