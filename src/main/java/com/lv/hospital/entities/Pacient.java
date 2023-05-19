@@ -2,11 +2,10 @@ package com.lv.hospital.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "pacient")
@@ -15,12 +14,12 @@ public class Pacient implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private Integer age;
-
+    
     public Pacient() {
     }
     
@@ -79,5 +78,4 @@ public class Pacient implements Serializable{
         return true;
     }
 
-    
 }

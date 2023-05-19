@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
+
 /**
  * JavaFX App
  */
@@ -32,6 +34,21 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+
+        // Pacient p1 = new Pacient(null, "Maria Brown", 17);
+        // Pacient p2 = new Pacient(null, "Alex Green", 20);
+        // Pacient p3 = new Pacient(null, "Bob Grey", 25);
+
+        // EntityManagerFactory emf = Persistence.createEntityManagerFactory("hospital");
+        // EntityManager em = emf.createEntityManager();
+
+        // em.getTransaction().begin();
+        // em.persist(p1);
+        // em.persist(p2);
+        // em.persist(p3);
+        // em.getTransaction().commit();
+        // System.out.println("OK!");
+
         launch(args);
     }
 
