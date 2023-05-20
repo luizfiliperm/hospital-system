@@ -2,6 +2,7 @@ package com.lv.hospital.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,7 +40,7 @@ public class GlasgowComaScale implements Serializable{
     @Column(name = "result")
     private String result;
 
-    @OneToOne(mappedBy = "glasgowComaScale")
+    @OneToOne(mappedBy = "glasgowComaScale", cascade = CascadeType.ALL)
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
@@ -53,8 +54,7 @@ public class GlasgowComaScale implements Serializable{
         this.motorResponse = motorResponse;
         this.pupilResponse = pupilResponse;
         this.patient = patient;
-        this.total = calculateTotal();
-        this.result = calculateResult();
+        updateData();
     }
 
     public Long getId() {

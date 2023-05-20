@@ -55,10 +55,21 @@ public class PatientService {
     }
 
     public void updateGlasgowComaScaleByPatientId(Long patientId, GlasgowComaScale gcs){
-        gcs.updateData();
         em.getTransaction().begin();
         Patient p = findById(patientId);
-        p.setGlasgowComaScale(gcs);
+
+        GlasgowComaScale existingGcs = p.getGlasgowComaScale();
+
+
+        if(existingGcs == null){
+            p.setGlasgowComaScale(gcs);
+        }else{
+            existingGcs.setEyeOpening(gcs.getEyeOpening());
+            existingGcs.setVerbalResponse(gcs.getVerbalResponse());
+            existingGcs.setMotorResponse(gcs.getMotorResponse());
+            existingGcs.setPupilResponse(gcs.getPupilResponse());
+            existingGcs.updateData();
+        }
         em.merge(p);
         em.getTransaction().commit();
     }

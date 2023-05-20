@@ -114,13 +114,17 @@ public class PatientServiceTest {
         Patient patient = patientService.findById(savedPatientId);
         GlasgowComaScale gcsBeforeUpdate = patient.getGlasgowComaScale();
 
+        gcsBeforeUpdate = new GlasgowComaScale(gcsBeforeUpdate.getId(), gcsBeforeUpdate.getEyeOpening(), gcsBeforeUpdate.getVerbalResponse(), gcsBeforeUpdate.getMotorResponse(), gcsBeforeUpdate.getPupilResponse(), gcsBeforeUpdate.getPatient());
+
         GlasgowComaScale gcsToUpdate = new GlasgowComaScale(null, 4, 5, 6, 2, patient);
 
         patientService.updateGlasgowComaScaleByPatientId(savedPatientId, gcsToUpdate);
 
         GlasgowComaScale gcsAfterUpdate = patientService.findById(savedPatientId).getGlasgowComaScale();
 
+
         assertNotNull(gcsAfterUpdate);
+        assertEquals(gcsBeforeUpdate.getId(), gcsAfterUpdate.getId());
         assertNotEquals(gcsBeforeUpdate.getTotal(), gcsAfterUpdate.getTotal());
     }
 
