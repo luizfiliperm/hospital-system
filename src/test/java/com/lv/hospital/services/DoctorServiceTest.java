@@ -68,13 +68,13 @@ public class DoctorServiceTest {
 
     }
 
-    // @Test
-    // @Order(5)
-    // public void testDeleteById() {
-    //     doctorService.deleteById(savedDoctorId);
-    //     Doctor doctor = doctorService.findById(savedDoctorId);
+    @Test
+    @Order(5)
+    public void testDeleteById() {
+        doctorService.deleteById(savedDoctorId);
+        Doctor doctor = doctorService.findById(savedDoctorId);
 
-    //     assertNull(doctor);
-    // }
+        assertNull(doctor);
+    }
 
 }
