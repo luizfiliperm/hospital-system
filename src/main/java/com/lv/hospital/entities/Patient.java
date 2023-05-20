@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -26,6 +27,10 @@ public class Patient implements Serializable{
 
     @Column(name = "age")
     private Integer age;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
 
     @OneToOne(optional = true, cascade = jakarta.persistence.CascadeType.ALL)
     @JoinColumn(name = "glasgow_coma_scale_id")
