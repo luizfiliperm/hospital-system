@@ -2,6 +2,7 @@ package com.lv.hospital.services;
 
 import java.util.List;
 
+import com.lv.hospital.entities.Doctor;
 import com.lv.hospital.entities.GlasgowComaScale;
 import com.lv.hospital.entities.Patient;
 
@@ -19,8 +20,11 @@ public class PatientService {
         em = emf.createEntityManager();
     }
     
-    public void save(Patient obj) {
+    public void save(Patient obj, Long doctorId) {
         em.getTransaction().begin();
+
+        Doctor doctor = em.find(Doctor.class, doctorId);
+        obj.setDoctor(doctor);
         em.persist(obj);
         em.getTransaction().commit();
     }
@@ -46,10 +50,10 @@ public class PatientService {
         em.getTransaction().commit();
     }
 
-    public void updateGlasgowComaScaleByUserId(Long userId, GlasgowComaScale gcs){
+    public void updateGlasgowComaScaleByPatientId(Long patientId, GlasgowComaScale gcs){
         gcs.updateData();
         em.getTransaction().begin();
-        Patient p = findById(userId);
+        Patient p = findById(patientId);
         p.setGlasgowComaScale(gcs);
         em.merge(p);
         em.getTransaction().commit();

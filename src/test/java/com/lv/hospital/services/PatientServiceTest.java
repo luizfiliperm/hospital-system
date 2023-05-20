@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
+import com.lv.hospital.entities.Doctor;
 import com.lv.hospital.entities.GlasgowComaScale;
 import com.lv.hospital.entities.Patient;
 
@@ -24,8 +25,18 @@ public class PatientServiceTest {
     private static PatientService patientService;
     private static Long savedPatientId;
 
+    private static DoctorService doctorService;
+    private static Long savedDoctorId;
+
     @BeforeAll
     public static void setup() {
+
+        doctorService = new DoctorService();
+        Doctor doctor = new Doctor(null, "Test Doc", "Test");
+        doctorService.save(doctor);
+        savedDoctorId = doctor.getId();
+        doctorService.close();
+
         patientService = new PatientService();
     }
 
@@ -37,12 +48,13 @@ public class PatientServiceTest {
     @Test
     @Order(1)
     public void testSave() {
-        Patient patient = new Patient(null, "Test", 20, new GlasgowComaScale(null, 2, 3, 2, 0, null));
-        patientService.save(patient);
+        
+        Patient patient = new Patient(null, "Test", 1);
+        patientService.save(patient, savedDoctorId);
         savedPatientId = patient.getId();
-
         assertNotNull(savedPatientId);
     }
+
 
     @Test
     @Order(2)
@@ -81,13 +93,13 @@ public class PatientServiceTest {
 
     @Test
     @Order(5)
-    public void testUpdateGlasgowComaScaleByUserId() {
+    public void testUpdateGlasgowComaScaleByPatientId() {
         Patient patient = patientService.findById(savedPatientId);
         GlasgowComaScale gcsBeforeUpdate = patient.getGlasgowComaScale();
 
         GlasgowComaScale gcsToUpdate = new GlasgowComaScale(null, 4, 5, 6, 2, patient);
 
-        patientService.updateGlasgowComaScaleByUserId(savedPatientId, gcsToUpdate);
+        patientService.updateGlasgowComaScaleByPatientId(savedPatientId, gcsToUpdate);
 
         GlasgowComaScale gcsAfterUpdate = patientService.findById(savedPatientId).getGlasgowComaScale();
 

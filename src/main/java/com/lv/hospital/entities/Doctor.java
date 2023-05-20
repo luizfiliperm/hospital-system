@@ -1,6 +1,7 @@
 package com.lv.hospital.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -27,7 +28,7 @@ public class Doctor implements Serializable{
     private String password;
 
     @OneToMany(mappedBy = "doctor")
-    private List<Patient> patients;
+    private List<Patient> patients = new ArrayList<>();
 
     public Doctor() {
     }
