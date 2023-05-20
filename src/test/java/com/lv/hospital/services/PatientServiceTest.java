@@ -97,6 +97,19 @@ public class PatientServiceTest {
 
     @Test
     @Order(5)
+    public void testCreateGlasgowComaScaleByPatientId(){
+        GlasgowComaScale gcs = new GlasgowComaScale(null, 1, 2, 3, 1, patientService.findById(savedPatientId));
+        patientService.updateGlasgowComaScaleByPatientId(savedPatientId, gcs);
+
+        GlasgowComaScale gcsAfterSave = (patientService.findById(savedPatientId).getGlasgowComaScale());
+
+
+        assertNotNull(gcsAfterSave.getId());
+    }
+
+
+    @Test
+    @Order(6)
     public void testUpdateGlasgowComaScaleByPatientId() {
         Patient patient = patientService.findById(savedPatientId);
         GlasgowComaScale gcsBeforeUpdate = patient.getGlasgowComaScale();
@@ -112,7 +125,7 @@ public class PatientServiceTest {
     }
 
     @Test
-    @Order(6)
+    @Order(7)
     public void testFindAllByDoctorId() {
         List<Patient> patients = patientService.findAllByDoctorId(doctorId);
 
@@ -122,7 +135,7 @@ public class PatientServiceTest {
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     public void testDeleteById() {
         patientService.deleteById(savedPatientId);
 

@@ -34,7 +34,7 @@ public class Patient implements Serializable{
 
     @OneToOne(optional = true, cascade = jakarta.persistence.CascadeType.ALL)
     @JoinColumn(name = "glasgow_coma_scale_id")
-    private GlasgowComaScale glasgowComaScale = new GlasgowComaScale();
+    private GlasgowComaScale glasgowComaScale;
      
     public Patient() {
     }
