@@ -121,14 +121,14 @@ public class PatientServiceTest {
         assertEquals(doctorId, patients.get(0).getDoctor().getId());
     }
 
-    // @Test
-    // @Order(7)
-    // public void testDeleteById() {
-    //     patientService.deleteById(savedPatientId);
+    @Test
+    @Order(7)
+    public void testDeleteById() {
+        patientService.deleteById(savedPatientId);
 
-    //     Patient patient = patientService.findById(savedPatientId);
+        Patient patient = patientService.findById(savedPatientId);
 
-    //     assertNull(patient);
-    // }
+        assertNull(patient);
+    }
 
 }
