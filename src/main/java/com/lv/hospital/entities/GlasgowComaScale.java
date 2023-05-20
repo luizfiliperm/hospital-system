@@ -151,13 +151,13 @@ public class GlasgowComaScale implements Serializable{
     }
 
     public String calculateResult() {
-        if (total < 3) {
+        if (total <= 3) {
             return "Deep coma";
-        } else if (total < 4) {
+        } else if (total <= 4) {
             return "Severe coma";
-        } else if (total < 7) {
+        } else if (total <= 7) {
             return "Moderate coma";
-        } else if (total < 11) {
+        } else if (total <= 11) {
             return "Superficial coma";
         } else {
             return "Normality";
