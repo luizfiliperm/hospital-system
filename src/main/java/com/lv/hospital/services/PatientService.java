@@ -2,6 +2,7 @@ package com.lv.hospital.services;
 
 import java.util.List;
 
+import com.lv.hospital.entities.GlasgowComaScale;
 import com.lv.hospital.entities.Patient;
 
 import jakarta.persistence.EntityManager;
@@ -45,6 +46,14 @@ public class PatientService {
         em.getTransaction().commit();
     }
 
+    public void updateGlasgowComaScaleByUserId(Long userId, GlasgowComaScale gcs){
+        gcs.updateData();
+        em.getTransaction().begin();
+        Patient p = findById(userId);
+        p.setGlasgowComaScale(gcs);
+        em.merge(p);
+        em.getTransaction().commit();
+    }
 
     public void close() {
         em.close();

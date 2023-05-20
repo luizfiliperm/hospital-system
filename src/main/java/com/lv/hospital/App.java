@@ -7,8 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
+import com.lv.hospital.entities.GlasgowComaScale;
 import com.lv.hospital.entities.Patient;
 import com.lv.hospital.services.PatientService;
 
@@ -39,33 +39,33 @@ public class App extends Application {
     public static void main(String[] args) {
 
 
-        PatientService service = new PatientService();
+        PatientService pService = new PatientService();
+        // Testing PatientService
 
-        Patient p1 = new Patient(null, "Julia Brown", 17);
-        Patient p2 = new Patient(null, "Alex Green", 20);
-        Patient p3 = new Patient(null, "Bob Grey", 25);
+        Patient p1 = new Patient(null, "João", 20);
 
-        service.save(p1);
-        service.save(p2);
-        service.save(p3);
+        pService.save(p1);
 
-        p1.setAge(18);
-        service.update(p1);
-        
-        ArrayList<Patient> list = (ArrayList<Patient>) service.findAll();
-        list.forEach(System.out::println);
+        // Testing GlasgowComaScaleService
 
-        service.deleteById(3L);
+        GlasgowComaScale g1 = new GlasgowComaScale(null, 4, 5, 6, 2, p1);
 
-        list = (ArrayList<Patient>) service.findAll();
+        pService.updateGlasgowComaScaleByUserId(p1.getId(), g1);
 
-        list.forEach(System.out::println);
+        System.out.println(pService.findById(p1.getId()).getGlasgowComaScale().getTotal());
+        System.out.println(pService.findById(p1.getId()).getGlasgowComaScale().getResult());
 
+        g1.setEyeOpening(6);
+        g1.setVerbalResponse(-5);
 
-        System.out.println("Find by id: " + service.findById(1L));
+        pService.updateGlasgowComaScaleByUserId(p1.getId(), g1);
+
+        System.out.println(pService.findById(p1.getId()).getGlasgowComaScale().getTotal());
+        System.out.println(pService.findById(p1.getId()).getGlasgowComaScale().getResult());
+
         System.out.println("OK!");
 
-        service.close();
+        pService.close();
         // launch(args);
     }
 

@@ -2,9 +2,12 @@ package com.lv.hospital.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,18 +18,33 @@ public class Patient implements Serializable{
 
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @Column(insertable = false, updatable = false)
     private Long id;
 
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "age")
     private Integer age;
-    
+
+    @OneToOne(optional = true, cascade = jakarta.persistence.CascadeType.ALL)
+    @JoinColumn(name = "glasgow_coma_scale_id")
+    private GlasgowComaScale glasgowComaScale;
+     
     public Patient() {
     }
-    
+
     public Patient(Long id, String name, Integer age) {
         this.id = id;
         this.name = name;
         this.age = age;
+    }
+    
+    public Patient(Long id, String name, Integer age, GlasgowComaScale glasgowComaScale) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.glasgowComaScale = glasgowComaScale;
     }
 
     public Long getId() {
@@ -52,6 +70,19 @@ public class Patient implements Serializable{
     public void setAge(Integer age) {
         this.age = age;
     }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public GlasgowComaScale getGlasgowComaScale() {
+        return glasgowComaScale;
+    }
+
+    public void setGlasgowComaScale(GlasgowComaScale glasgowComaScale) {
+        this.glasgowComaScale = glasgowComaScale;
+    }
+
 
     @Override
     public int hashCode() {
