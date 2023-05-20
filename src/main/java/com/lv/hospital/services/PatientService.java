@@ -20,13 +20,17 @@ public class PatientService {
         em = emf.createEntityManager();
     }
     
-    public void save(Patient obj, Long doctorId) {
-        em.getTransaction().begin();
-
+    public void save(Patient patient, Long doctorId) {
+        
         Doctor doctor = em.find(Doctor.class, doctorId);
-        obj.setDoctor(doctor);
-        em.persist(obj);
-        em.getTransaction().commit();
+        
+        if(doctor != null){
+            patient.setDoctor(doctor);
+
+            em.getTransaction().begin();
+            em.persist(patient);
+            em.getTransaction().commit();
+        }
     }
 
     public List<Patient> findAll() {
@@ -57,6 +61,12 @@ public class PatientService {
         p.setGlasgowComaScale(gcs);
         em.merge(p);
         em.getTransaction().commit();
+    }
+
+    public List<Patient> findAllByDoctorId(Long doctorId) {
+        return em.createQuery("SELECT p FROM Patient p WHERE p.doctor.id = :doctorId", Patient.class)
+            .setParameter("doctorId", doctorId)
+            .getResultList();
     }
 
     public void close() {

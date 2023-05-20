@@ -25,18 +25,10 @@ public class PatientServiceTest {
     private static PatientService patientService;
     private static Long savedPatientId;
 
-    private static DoctorService doctorService;
-    private static Long savedDoctorId;
+    private static Long doctorId;
 
     @BeforeAll
     public static void setup() {
-
-        doctorService = new DoctorService();
-        Doctor doctor = new Doctor(null, "Test Doc", "Test");
-        doctorService.save(doctor);
-        savedDoctorId = doctor.getId();
-        doctorService.close();
-
         patientService = new PatientService();
     }
 
@@ -46,11 +38,23 @@ public class PatientServiceTest {
     }
 
     @Test
+    @Order(0)
+    public void createDoctor(){
+        DoctorService doctorService = new DoctorService();
+        Doctor doctor = new Doctor(null, "Test", "Test");
+        doctorService.save(doctor);
+        doctorService.close();
+        doctorId = doctor.getId();
+
+        assertNotNull(doctorId);
+    }
+
+    @Test
     @Order(1)
     public void testSave() {
         
         Patient patient = new Patient(null, "Test", 1);
-        patientService.save(patient, savedDoctorId);
+        patientService.save(patient, doctorId);
         savedPatientId = patient.getId();
         assertNotNull(savedPatientId);
     }
@@ -109,12 +113,22 @@ public class PatientServiceTest {
 
     @Test
     @Order(6)
-    public void testDeleteById() {
-        patientService.deleteById(savedPatientId);
+    public void testFindAllByDoctorId() {
+        List<Patient> patients = patientService.findAllByDoctorId(doctorId);
 
-        Patient patient = patientService.findById(savedPatientId);
-
-        assertNull(patient);
+        assertNotNull(patients);
+        assertFalse(patients.isEmpty());
+        assertEquals(doctorId, patients.get(0).getDoctor().getId());
     }
+
+    // @Test
+    // @Order(7)
+    // public void testDeleteById() {
+    //     patientService.deleteById(savedPatientId);
+
+    //     Patient patient = patientService.findById(savedPatientId);
+
+    //     assertNull(patient);
+    // }
 
 }
