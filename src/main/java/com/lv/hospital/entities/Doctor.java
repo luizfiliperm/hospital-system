@@ -12,6 +12,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import static com.lv.hospital.util.PasswordUtils.*;
+
 @Entity
 @Table(name = "doctor")
 public class Doctor implements Serializable{
@@ -37,7 +39,7 @@ public class Doctor implements Serializable{
     public Doctor(Long id, String name, String password) {
         this.id = id;
         this.name = name;
-        this.password = password;
+        setPassword(password);
     }
 
     public Long getId() {
@@ -61,7 +63,11 @@ public class Doctor implements Serializable{
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = encrypt(password);
+    }
+
+    public boolean comparePassword(String password){
+        return compare(password, this.password);
     }
 
     public void addPatient(Patient patient){
@@ -97,6 +103,6 @@ public class Doctor implements Serializable{
         return true;
     }
 
-    
+
 
 }
