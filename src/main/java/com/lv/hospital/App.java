@@ -8,17 +8,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.lv.hospital.entities.Doctor;
 
-/**
- * JavaFX App
- */
+
 public class App extends Application {
+
+    public static Doctor loggedDoctor;
 
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("views/logIn"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }

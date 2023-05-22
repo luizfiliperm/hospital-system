@@ -6,6 +6,7 @@ import com.lv.hospital.entities.Doctor;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.NoResultException;
 
 public class DoctorService {
     
@@ -32,9 +33,13 @@ public class DoctorService {
     }
 
     public Doctor findByName(String name){
-        return em.createQuery("SELECT d FROM Doctor d WHERE d.name = :name", Doctor.class)
-        .setParameter("name", name)
-        .getSingleResult();
+        try{
+            return em.createQuery("SELECT d FROM Doctor d WHERE d.name = :name", Doctor.class)
+            .setParameter("name", name)
+            .getSingleResult();
+        }catch(NoResultException e){
+            return null;
+        }
     }
 
     public void deleteById(Long id) {
