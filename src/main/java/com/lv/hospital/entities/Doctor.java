@@ -1,15 +1,22 @@
 package com.lv.hospital.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import static com.lv.hospital.util.PasswordUtils.*;
+
 @Entity
-@Table(name = "pacient")
-public class Pacient implements Serializable{
+@Table(name = "doctor")
+public class Doctor implements Serializable{
     
     private static final long serialVersionUID = 1L;
 
@@ -17,16 +24,22 @@ public class Pacient implements Serializable{
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
     private String name;
-    private Integer age;
-    
-    public Pacient() {
+
+    @Column(name = "password")
+    private String password;
+
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    private List<Patient> patients = new ArrayList<>();
+
+    public Doctor() {
     }
-    
-    public Pacient(Long id, String name, Integer age) {
+
+    public Doctor(Long id, String name, String password) {
         this.id = id;
         this.name = name;
-        this.age = age;
+        setPassword(password);
     }
 
     public Long getId() {
@@ -45,12 +58,24 @@ public class Pacient implements Serializable{
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setPassword(String password) {
+        this.password = encrypt(password);
+    }
+
+    public boolean comparePassword(String password){
+        return compare(password, this.password);
+    }
+
+    public void addPatient(Patient patient){
+        patients.add(patient);
+    }
+
+    public List<Patient> getPatients(){
+        return patients;
     }
 
     @Override
@@ -69,7 +94,7 @@ public class Pacient implements Serializable{
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Pacient other = (Pacient) obj;
+        Doctor other = (Doctor) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -77,5 +102,7 @@ public class Pacient implements Serializable{
             return false;
         return true;
     }
+
+
 
 }
