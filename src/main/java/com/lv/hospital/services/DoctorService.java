@@ -31,6 +31,12 @@ public class DoctorService {
         return em.find(Doctor.class, id);
     }
 
+    public Doctor findByName(String name){
+        return em.createQuery("SELECT d FROM Doctor d WHERE d.name = :name", Doctor.class)
+        .setParameter("name", name)
+        .getSingleResult();
+    }
+
     public void deleteById(Long id) {
         em.getTransaction().begin();
         Doctor obj = findById(id);
