@@ -4,9 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lv.hospital.entities.enums.BrazilianState;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -30,15 +34,23 @@ public class Doctor implements Serializable{
     @Column(name = "password")
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "state")
+    private BrazilianState state;
+
+    @Column(name = "crm")
+    private String crm;
+
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
     private List<Patient> patients = new ArrayList<>();
 
     public Doctor() {
     }
 
-    public Doctor(Long id, String name, String password) {
+    public Doctor(Long id, String name, String password, BrazilianState state) {
         this.id = id;
         this.name = name;
+        this.state = state;
         setPassword(password);
     }
 
@@ -77,6 +89,29 @@ public class Doctor implements Serializable{
     public List<Patient> getPatients(){
         return patients;
     }
+
+    public BrazilianState getState() {
+        return state;
+    }
+
+    public void setState(BrazilianState state) {
+        this.state = state;
+    }
+
+    public String getCrm() {
+        return crm;
+    }
+
+    public void setCrm(String crm) {
+        this.crm = generateCRM();
+    }
+
+    public String generateCRM() {
+        String idString = String.format("%06d", id);
+        String stateAbbreviation = state.getAbbreviation();
+        return stateAbbreviation + "-" + idString;
+    }
+    
 
     @Override
     public int hashCode() {

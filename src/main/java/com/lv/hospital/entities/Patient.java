@@ -32,6 +32,12 @@ public class Patient implements Serializable{
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "mrn")
+    private String mrn;
+
     @OneToOne(optional = true, cascade = jakarta.persistence.CascadeType.ALL)
     @JoinColumn(name = "glasgow_coma_scale_id")
     private GlasgowComaScale glasgowComaScale;
@@ -39,16 +45,20 @@ public class Patient implements Serializable{
     public Patient() {
     }
 
-    public Patient(Long id, String name, Integer age) {
+    public Patient(Long id, String name, Integer age, String phone) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.phone = phone;
+        this.mrn = generateMRN();
     }
     
-    public Patient(Long id, String name, Integer age, GlasgowComaScale glasgowComaScale) {
+    public Patient(Long id, String name, Integer age, String phone, GlasgowComaScale glasgowComaScale) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.phone = phone;
+        this.mrn = generateMRN();
         this.glasgowComaScale = glasgowComaScale;
     }
 
@@ -92,6 +102,28 @@ public class Patient implements Serializable{
         this.doctor = doctor;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getMrn() {
+        return mrn;
+    }
+
+    public void setMrn(String mrn) {
+        this.mrn = mrn;
+    }
+
+    public String generateMRN(){
+        String idString = String.valueOf(id);
+        String zeros = "000000";
+        String mrn = zeros.substring(idString.length()) + idString;
+        return mrn;
+    }
 
     @Override
     public int hashCode() {
@@ -122,6 +154,9 @@ public class Patient implements Serializable{
     public String toString() {
         return "Patient [id=" + id + ", name=" + name + ", age=" + age + "]";
     }
+
+
+    
 
     
 

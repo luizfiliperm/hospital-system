@@ -18,6 +18,7 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import com.lv.hospital.entities.Doctor;
 import com.lv.hospital.entities.GlasgowComaScale;
 import com.lv.hospital.entities.Patient;
+import com.lv.hospital.entities.enums.BrazilianState;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class PatientServiceTest {
@@ -41,7 +42,7 @@ public class PatientServiceTest {
     @Order(0)
     public void createDoctor(){
         DoctorService doctorService = new DoctorService();
-        Doctor doctor = new Doctor(null, "Test", "Test");
+        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB);
         doctorService.save(doctor);
         doctorService.close();
         doctorId = doctor.getId();
@@ -53,7 +54,7 @@ public class PatientServiceTest {
     @Order(1)
     public void testSave() {
         
-        Patient patient = new Patient(null, "Test", 1);
+        Patient patient = new Patient(null, "Test", 1, "(99) 99999-9999");
         patientService.save(patient, doctorId);
         savedPatientId = patient.getId();
         assertNotNull(savedPatientId);
@@ -83,7 +84,7 @@ public class PatientServiceTest {
     public void testUpdate() {
         Patient patient = patientService.findById(savedPatientId);
 
-        Patient originalPatient = new Patient(patient.getId(), patient.getName(), patient.getAge());
+        Patient originalPatient = new Patient(patient.getId(), patient.getName(), patient.getAge(), patient.getPhone());
         patient.setName(patient.getName() + " Updated");
         patient.setAge(patient.getAge() + 1);
         patientService.update(patient);
