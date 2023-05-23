@@ -53,7 +53,7 @@ public class PatientServiceTest {
     @Order(1)
     public void testSave() {
         
-        Patient patient = new Patient(null, "Test", 1);
+        Patient patient = new Patient(null, "Test", 1, "(99) 99999-9999");
         patientService.save(patient, doctorId);
         savedPatientId = patient.getId();
         assertNotNull(savedPatientId);
@@ -83,7 +83,7 @@ public class PatientServiceTest {
     public void testUpdate() {
         Patient patient = patientService.findById(savedPatientId);
 
-        Patient originalPatient = new Patient(patient.getId(), patient.getName(), patient.getAge());
+        Patient originalPatient = new Patient(patient.getId(), patient.getName(), patient.getAge(), patient.getPhone());
         patient.setName(patient.getName() + " Updated");
         patient.setAge(patient.getAge() + 1);
         patientService.update(patient);

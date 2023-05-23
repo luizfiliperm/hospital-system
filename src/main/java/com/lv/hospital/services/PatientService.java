@@ -29,6 +29,7 @@ public class PatientService {
 
             em.getTransaction().begin();
             em.persist(patient);
+            patient.setMrn(patient.generateMRN());
             em.getTransaction().commit();
         }
     }
