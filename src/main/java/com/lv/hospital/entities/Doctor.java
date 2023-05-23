@@ -38,6 +38,9 @@ public class Doctor implements Serializable{
     @Column(name = "state")
     private BrazilianState state;
 
+    @Column(name = "crm")
+    private String crm;
+
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
     private List<Patient> patients = new ArrayList<>();
 
@@ -94,6 +97,21 @@ public class Doctor implements Serializable{
     public void setState(BrazilianState state) {
         this.state = state;
     }
+
+    public String getCrm() {
+        return crm;
+    }
+
+    public void setCrm(String crm) {
+        this.crm = generateCRM();
+    }
+
+    public String generateCRM() {
+        String idString = String.format("%06d", id);
+        String stateAbbreviation = state.getAbbreviation();
+        return stateAbbreviation + "-" + idString;
+    }
+    
 
     @Override
     public int hashCode() {

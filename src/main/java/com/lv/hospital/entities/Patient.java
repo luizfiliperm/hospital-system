@@ -35,7 +35,7 @@ public class Patient implements Serializable{
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "medical_record_number")
+    @Column(name = "mrn")
     private String mrn;
 
     @OneToOne(optional = true, cascade = jakarta.persistence.CascadeType.ALL)

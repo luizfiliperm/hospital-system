@@ -21,6 +21,7 @@ public class DoctorService {
     public void save(Doctor obj) {
         em.getTransaction().begin();
         em.persist(obj);
+        obj.setCrm(obj.generateCRM());
         em.getTransaction().commit();
     }
 
