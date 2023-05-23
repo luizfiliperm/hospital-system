@@ -18,6 +18,7 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import com.lv.hospital.entities.Doctor;
 import com.lv.hospital.entities.GlasgowComaScale;
 import com.lv.hospital.entities.Patient;
+import com.lv.hospital.entities.enums.BrazilianState;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class PatientServiceTest {
@@ -41,7 +42,7 @@ public class PatientServiceTest {
     @Order(0)
     public void createDoctor(){
         DoctorService doctorService = new DoctorService();
-        Doctor doctor = new Doctor(null, "Test", "Test");
+        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB);
         doctorService.save(doctor);
         doctorService.close();
         doctorId = doctor.getId();

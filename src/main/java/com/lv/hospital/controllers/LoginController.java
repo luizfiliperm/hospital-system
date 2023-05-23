@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.lv.hospital.App;
 import com.lv.hospital.entities.Doctor;
+import com.lv.hospital.entities.enums.BrazilianState;
 import com.lv.hospital.services.DoctorService;
 import com.lv.hospital.util.PasswordUtils;
 
@@ -53,7 +54,7 @@ public class LoginController {
         // New User
         if(isSignIn){
             if(checkIfPasswordIsValid()){
-                Doctor doctor = new Doctor(null, tfName.getText(), tfPassword.getText());
+                Doctor doctor = new Doctor(null, tfName.getText(), tfPassword.getText(), BrazilianState.PB);
                 ds.save(doctor);
                 instantiateDoctor(doctor);
                 ds.close();
