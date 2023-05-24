@@ -12,14 +12,14 @@ public class DoctorTest {
     
     @Test
     public void EqualPasswords() {
-        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB);
+        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB, "Neurologista", "doctor@email.com");
         String encryptedPassword = doctor.getPassword();
         assertTrue(PasswordUtils.compare("Test", encryptedPassword));
     }
 
     @Test
     public void NotEqualPasswords() {
-        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB);
+        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB, "Neurologista", "doctor@email.com");
         String encryptedPassword = doctor.getPassword();
         assertFalse(PasswordUtils.compare("Test1", encryptedPassword));
     }

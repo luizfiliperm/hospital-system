@@ -42,7 +42,7 @@ public class PatientServiceTest {
     @Order(0)
     public void createDoctor(){
         DoctorService doctorService = new DoctorService();
-        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB);
+        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB, "Neurologista", "doctor@gmail.com");
         doctorService.save(doctor);
         doctorService.close();
         doctorId = doctor.getId();
