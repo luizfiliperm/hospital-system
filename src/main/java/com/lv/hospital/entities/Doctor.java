@@ -38,6 +38,9 @@ public class Doctor implements Serializable{
     @Column(name = "state")
     private BrazilianState state;
 
+    @Column(name = "especiality")
+    private String especiality;
+
     @Column(name = "crm")
     private String crm;
 
@@ -47,10 +50,11 @@ public class Doctor implements Serializable{
     public Doctor() {
     }
 
-    public Doctor(Long id, String name, String password, BrazilianState state) {
+    public Doctor(Long id, String name, String password, BrazilianState state, String especiality) {
         this.id = id;
         this.name = name;
         this.state = state;
+        this.especiality = especiality;
         setPassword(password);
     }
 
@@ -96,6 +100,15 @@ public class Doctor implements Serializable{
 
     public void setState(BrazilianState state) {
         this.state = state;
+    }
+
+    public String getEspeciality() {
+        return especiality;
+    }
+
+    public void setEspeciality(String especiality) {
+        this.especiality = especiality;
+        
     }
 
     public String getCrm() {
