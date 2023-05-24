@@ -33,7 +33,7 @@ public class DoctorServiceTest {
     @Test
     @Order(1)
     public void testSave() {
-        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB, "Neurologista");
+        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB, "Neurologista", "doctor@email.com");
         doctorService.save(doctor);
         savedDoctorId = doctor.getId();
         assertNotNull(savedDoctorId);
@@ -56,7 +56,7 @@ public class DoctorServiceTest {
     public void testUpdate() {
         Doctor doctor = doctorService.findById(savedDoctorId);
 
-        Doctor originalDoctor = new Doctor(doctor.getId(), doctor.getName(), doctor.getPassword(), doctor.getState(), doctor.getEspeciality());
+        Doctor originalDoctor = new Doctor(doctor.getId(), doctor.getName(), doctor.getPassword(), doctor.getState(), doctor.getEspeciality(), doctor.getEmail());
 
         doctor.setName(doctor.getName() + " Updated");
         

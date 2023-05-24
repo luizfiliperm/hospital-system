@@ -54,7 +54,7 @@ public class LoginController {
         // New User
         if(isSignIn){
             if(checkIfPasswordIsValid()){
-                Doctor doctor = new Doctor(null, tfName.getText(), tfPassword.getText(), BrazilianState.PB, "Neurologista");
+                Doctor doctor = new Doctor(null, tfName.getText(), tfPassword.getText(), BrazilianState.PB, "Neurologista", "Teste@email.com");
                 ds.save(doctor);
                 instantiateDoctor(doctor);
                 ds.close();

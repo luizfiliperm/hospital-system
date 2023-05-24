@@ -41,6 +41,9 @@ public class Doctor implements Serializable{
     @Column(name = "especiality")
     private String especiality;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "crm")
     private String crm;
 
@@ -50,11 +53,12 @@ public class Doctor implements Serializable{
     public Doctor() {
     }
 
-    public Doctor(Long id, String name, String password, BrazilianState state, String especiality) {
+    public Doctor(Long id, String name, String password, BrazilianState state, String especiality, String email) {
         this.id = id;
         this.name = name;
         this.state = state;
         this.especiality = especiality;
+        this.email = email;
         setPassword(password);
     }
 
@@ -108,7 +112,14 @@ public class Doctor implements Serializable{
 
     public void setEspeciality(String especiality) {
         this.especiality = especiality;
-        
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCrm() {
