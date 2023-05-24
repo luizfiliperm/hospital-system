@@ -3,11 +3,12 @@
     <persistence-unit name="hospital">
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="jakarta.persistence.jdbc.url"
-                value="jdbc:mysql://localhost:3306/hospital" />
+          <!-- Mavi: --><property name="jakarta.persistence.jdbc.url"
+               value="jdbc:mysql://localhost/hospital" />
+                <!-- Luiz: value="jdbc:mysql://localhost:3306/hospital" -->
 
             <property name="jakarta.persistence.jdbc.user" value="root" />
-            <property name="jakarta.persistence.jdbc.password" value="123456" />
+            <property name="jakarta.persistence.jdbc.password" value="" />
 
             <property name="hibernate.hbm2ddl.auto" value="update" />
 
