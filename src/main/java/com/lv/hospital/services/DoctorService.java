@@ -43,6 +43,27 @@ public class DoctorService {
         }
     }
 
+    public Doctor findByCrm(String crm){
+        try{
+            return em.createQuery("SELECT d FROM Doctor d WHERE d.crm = :crm", Doctor.class)
+            .setParameter("crm", crm)
+            .getSingleResult();
+        }catch(NoResultException e){
+            return null;
+        }
+    }
+
+    public Boolean emailExists(String email){
+        try{
+            em.createQuery("SELECT d FROM Doctor d WHERE d.email = :email", Doctor.class)
+            .setParameter("email", email)
+            .getSingleResult();
+            return true;
+        }catch(NoResultException e){
+            return false;
+        }
+    }
+
     public void deleteById(Long id) {
         em.getTransaction().begin();
         Doctor obj = findById(id);

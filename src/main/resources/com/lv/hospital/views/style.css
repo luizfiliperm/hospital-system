@@ -1,0 +1,43 @@
+
+/* patient view */
+
+.radio-button > .radio {
+    -fx-border-color: #DB0519;
+    border-color: #DB0519;
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-width: 2px;
+    border-width: 2px;
+    -fx-shape: "M 0 5 C 0 2.24 2.24 0 5 0 C 7.76 0 10 2.24 10 5 C 10 7.76 7.76 10 5 10 C 2.24 10 0 7.76 0 5 Z";
+}
+
+.radio-button > .radio > .dot {
+    background-color: #db051a85;
+    -fx-background-color: #db051a85;
+    -fx-alignment: center;
+    -fx-shape: "M 0 0 m -4.5 0 a 4.5 4.5 0 1 0 9 0 a 4.5 4.5 0 1 0 -9 0";
+    -fx-clip: "M -4.5 -4.5 m -4.5 0 a 4.5 4.5 0 1 0 9 0 a 4.5 4.5 0 1 0 -9 0";
+    clip: auto;
+    
+}
+
+.radio-button:selected > .radio > .dot {
+    -fx-background-color: #DB0519;
+    background-color: #DB0519;
+    -fx-alignment: center;
+}
+
+.saveButton {
+    -fx-background-color: #6DA5D2;
+    background-color: #6DA5D2;
+    -fx-text-fill: black;
+    -fx-background-radius: 38px;
+}
+
+.saveButton:hover {
+    background-color: #0A4164 !important;
+    -fx-background-color:  #0A4164 !important;
+    -fx-text-fill: white;
+}
+
+/* patient view */
