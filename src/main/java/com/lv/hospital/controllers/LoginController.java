@@ -1,5 +1,9 @@
 package com.lv.hospital.controllers;
 
+import java.io.IOException;
+
+import com.lv.hospital.App;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,7 +16,7 @@ public class LoginController {
     private Button btLogin;
 
     @FXML
-    private Button btSingin;
+    private Button btSignin;
 
     @FXML
     private TextField tfLogin;
@@ -26,8 +30,8 @@ public class LoginController {
     }
 
     @FXML
-    void singIn(ActionEvent event) {
-
+    void signIn(ActionEvent event) throws IOException{
+        App.setRoot("views/signIn");
     }
 
 }

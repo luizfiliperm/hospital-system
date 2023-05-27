@@ -43,7 +43,7 @@
 
 <VBox prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lv.hospital.controllers.LoginController">
   <children>
-    <AnchorPane fx:id="btLogin" maxHeight="-1.0" maxWidth="-1.0" onDragDetected="#login" style="-fx-background-color: B2B7C4;" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" style="-fx-background-color: B2B7C4;" VBox.vgrow="ALWAYS">
          <children>
             <Label layoutX="72.0" layoutY="62.0" prefHeight="225.0" prefWidth="442.0" text="Raccoon General Hospital" textAlignment="CENTER">
                <font>
@@ -57,7 +57,7 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btSingin" layoutX="206.0" layoutY="563.0" mnemonicParsing="false" onAction="#singIn" style="-fx-background-color: none;" text="Cadastre-se" textFill="#b2b7c4">
+                  <Button fx:id="btSignin" layoutX="206.0" layoutY="563.0" mnemonicParsing="false" onAction="#signIn" style="-fx-background-color: none;" text="Cadastre-se" textFill="#b2b7c4">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -67,13 +67,13 @@
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tfLogin" alignment="BOTTOM_LEFT" layoutX="90.0" layoutY="297.0" prefHeight="33.0" prefWidth="317.0" promptText="CRM" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" />
-                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="96.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
+                  <TextField fx:id="tfLogin" alignment="BOTTOM_LEFT" layoutX="90.0" layoutY="297.0" prefHeight="33.0" prefWidth="317.0" promptText="CRM" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" AnchorPane.leftAnchor="90.0" />
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="96.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="96.0">
                      <image>
                         <Image url="@../icons/register/fi-br-doctor.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="tfPassword" alignment="CENTER" layoutX="90.0" layoutY="361.0" prefHeight="33.0" prefWidth="317.0" promptText="Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" />
+                  <TextField fx:id="tfPassword" layoutX="90.0" layoutY="361.0" prefHeight="33.0" prefWidth="317.0" promptText="Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" />
                   <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="96.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-lock.png" />
