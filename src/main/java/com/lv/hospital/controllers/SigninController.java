@@ -8,16 +8,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 public class SigninController {
 
     @FXML
-    private Button btCadastro;
+    private Button btBack;
 
     @FXML
-    private ImageView imgVoltar;
+    private Button btCadastro;
 
     @FXML
     private TextField tfConfirnPassword;
@@ -35,15 +33,13 @@ public class SigninController {
     private TextField tfState;
 
     @FXML
+    void backToLogin(ActionEvent event) throws IOException {
+        App.setRoot("views/logIn");
+    }
+
+    @FXML
     void cadastrar(ActionEvent event) {
 
     }
 
-    @FXML
-    void voltar(MouseEvent event) throws IOException {
-        App.setRoot("views/logIn");
-    }
-
 }
-
-
