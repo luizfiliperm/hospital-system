@@ -86,7 +86,7 @@
                         <Image url="@../icons/register/fi-br-lock.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="lbInfo" alignment="CENTER" layoutX="93.0" layoutY="454.0" prefHeight="17.0" prefWidth="306.0" text="aa" textFill="WHITE" visible="false">
+                  <Label fx:id="lbInfo" alignment="CENTER" disable="true" layoutX="93.0" layoutY="454.0" prefHeight="17.0" prefWidth="306.0" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>

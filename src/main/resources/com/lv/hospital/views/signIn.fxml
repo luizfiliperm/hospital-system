@@ -21,7 +21,7 @@
             </Label>
             <AnchorPane layoutX="570.0" layoutY="32.0" prefHeight="626.0" prefWidth="492.0" style="-fx-background-color: #0a4164; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                <children>
-                  <Button fx:id="btCadastro" layoutX="154.0" layoutY="514.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" text="Cadastrar" textFill="WHITE">
+                  <Button fx:id="btCadastro" layoutX="151.0" layoutY="539.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" text="Cadastrar" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -31,54 +31,54 @@
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tfEmail" layoutX="91.0" layoutY="197.0" prefHeight="33.0" prefWidth="317.0" promptText="Email" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" AnchorPane.leftAnchor="91.0">
+                  <TextField fx:id="tfEmail" layoutX="88.0" layoutY="203.0" prefHeight="33.0" prefWidth="317.0" promptText="Email" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" AnchorPane.leftAnchor="88.0">
                      <padding>
                         <Insets left="35.0" />
                      </padding></TextField>
-                  <TextField fx:id="tfName" layoutX="91.0" layoutY="247.0" prefHeight="33.0" prefWidth="317.0" promptText="Name" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                  <TextField fx:id="tfName" layoutX="88.0" layoutY="253.0" prefHeight="33.0" prefWidth="317.0" promptText="Name" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                      <padding>
                         <Insets left="35.0" />
                      </padding></TextField>
-                  <TextField fx:id="tfPassword" layoutX="91.0" layoutY="300.0" prefHeight="33.0" prefWidth="317.0" promptText="Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                  <TextField fx:id="tfPassword" layoutX="88.0" layoutY="306.0" prefHeight="33.0" prefWidth="317.0" promptText="Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                      <padding>
                         <Insets left="35.0" />
                      </padding></TextField>
-                  <TextField fx:id="tfConfirnPassword" layoutX="91.0" layoutY="354.0" prefHeight="33.0" prefWidth="317.0" promptText="Confirm Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                  <TextField fx:id="tfConfirnPassword" layoutX="88.0" layoutY="360.0" prefHeight="33.0" prefWidth="317.0" promptText="Confirm Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                      <padding>
                         <Insets left="35.0" />
                      </padding>
                   </TextField>
-                  <TextField fx:id="tfState" layoutX="91.0" layoutY="409.0" prefHeight="33.0" prefWidth="317.0" promptText="State" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                  <TextField fx:id="tfState" layoutX="88.0" layoutY="415.0" prefHeight="33.0" prefWidth="317.0" promptText="State" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                      <padding>
                         <Insets left="35.0" />
                      </padding>
                   </TextField>
-                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="99.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="96.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-at.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="100.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="97.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-user.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="98.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="95.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-lock.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="98.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="95.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-unlock.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="98.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="95.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-map-marker.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="91.0" layoutY="458.0" prefHeight="20.0" prefWidth="316.0" text="Label" textFill="WHITE" visible="false">
+                  <Label alignment="CENTER" disable="true" layoutX="89.0" layoutY="487.0" prefHeight="20.0" prefWidth="316.0" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
