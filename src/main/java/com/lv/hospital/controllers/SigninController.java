@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class SigninController{
@@ -24,7 +25,7 @@ public class SigninController{
     private Label lbInfo;
 
     @FXML
-    private TextField tfConfirmPassword;
+    private PasswordField tfConfirmPassword;
 
     @FXML
     private TextField tfEmail;
@@ -33,7 +34,7 @@ public class SigninController{
     private TextField tfName;
 
     @FXML
-    private TextField tfPassword;
+    private PasswordField tfPassword;
 
     @FXML
     private TextField tfState;
