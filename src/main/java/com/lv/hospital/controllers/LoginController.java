@@ -7,8 +7,8 @@ import com.lv.hospital.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 public class LoginController {
 
@@ -17,6 +17,9 @@ public class LoginController {
 
     @FXML
     private Button btSignin;
+
+    @FXML
+    private Label lbInfo;
 
     @FXML
     private TextField tfLogin;
@@ -30,7 +33,7 @@ public class LoginController {
     }
 
     @FXML
-    void signIn(ActionEvent event) throws IOException{
+    void signIn(ActionEvent event) throws IOException {
         App.setRoot("views/signIn");
     }
 
