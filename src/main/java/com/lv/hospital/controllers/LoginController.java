@@ -42,15 +42,15 @@ public class LoginController{
 
     private Boolean validateFields(){
 
-        String crm = tfLogin.getText();
+        String login = tfLogin.getText();
         String password = tfPassword.getText();
 
-        if(crm.equals("") || password.equals("")){
+        if(login.equals("") || password.equals("")){
             lbInfo.setText("Preencha todos os campos!");
             return false;
         }
 
-        Doctor auxDoctor = App.ds.findByCrm(crm);
+        Doctor auxDoctor = findDoctor();
         if(auxDoctor == null){
             lbInfo.setText("Usuário ou senha incorretos");
             return false;
@@ -62,6 +62,15 @@ public class LoginController{
         }
 
         return true;
+    }
+
+    private Doctor findDoctor(){
+        Doctor auxDoctor = App.ds.findByCrm(tfLogin.getText());
+        if(auxDoctor == null){
+            auxDoctor = App.ds.findByEmail(tfLogin.getText());
+        }
+
+        return auxDoctor;
     }
 
     @FXML

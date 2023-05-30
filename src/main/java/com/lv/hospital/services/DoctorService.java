@@ -53,6 +53,16 @@ public class DoctorService {
         }
     }
 
+    public Doctor findByEmail(String email){
+        try{
+            return em.createQuery("SELECT d FROM Doctor d WHERE d.email = :email", Doctor.class)
+            .setParameter("email", email)
+            .getSingleResult();
+        }catch(NoResultException e){
+            return null;
+        }
+    }
+
     public Boolean emailExists(String email){
         try{
             em.createQuery("SELECT d FROM Doctor d WHERE d.email = :email", Doctor.class)
