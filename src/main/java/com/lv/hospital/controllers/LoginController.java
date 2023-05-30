@@ -1,22 +1,18 @@
 package com.lv.hospital.controllers;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import com.lv.hospital.App;
 import com.lv.hospital.entities.Doctor;
-import com.lv.hospital.services.DoctorService;
 import com.lv.hospital.util.PasswordUtils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class LoginController implements Initializable{
+public class LoginController{
 
     @FXML
     private Button btLogin;
@@ -33,7 +29,6 @@ public class LoginController implements Initializable{
     @FXML
     private TextField tfPassword;
 
-    private DoctorService ds;
 
     private Doctor auxDoctor;
 
@@ -55,7 +50,7 @@ public class LoginController implements Initializable{
             return false;
         }
 
-        Doctor auxDoctor = ds.findByCrm(crm);
+        Doctor auxDoctor = App.ds.findByCrm(crm);
         if(auxDoctor == null){
             lbInfo.setText("Usuário ou senha incorretos");
             return false;
@@ -72,13 +67,6 @@ public class LoginController implements Initializable{
     @FXML
     void signIn(ActionEvent event) throws IOException {
         App.setRoot("views/signIn");
-    }
-
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        ds = new DoctorService();
-
-
     }
 
 

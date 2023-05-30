@@ -9,9 +9,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.lv.hospital.entities.Doctor;
+import com.lv.hospital.services.DoctorService;
 
 
 public class App extends Application {
+
+    public static DoctorService ds = new DoctorService();
 
     public static Doctor loggedDoctor;
 

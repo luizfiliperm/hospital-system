@@ -21,7 +21,7 @@
             </Label>
             <AnchorPane layoutX="570.0" layoutY="32.0" prefHeight="626.0" prefWidth="492.0" style="-fx-background-color: #0a4164; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                <children>
-                  <Button fx:id="btCadastro" layoutX="151.0" layoutY="539.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" text="Cadastrar" textFill="WHITE">
+                  <Button fx:id="btSignIn" layoutX="151.0" layoutY="539.0" mnemonicParsing="false" onAction="#signIn" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" text="Cadastrar" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -43,7 +43,7 @@
                      <padding>
                         <Insets left="35.0" />
                      </padding></TextField>
-                  <TextField fx:id="tfConfirnPassword" layoutX="88.0" layoutY="360.0" prefHeight="33.0" prefWidth="317.0" promptText="Confirm Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                  <TextField fx:id="tfConfirmPassword" layoutX="88.0" layoutY="360.0" prefHeight="33.0" prefWidth="317.0" promptText="Confirm Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                      <padding>
                         <Insets left="35.0" />
                      </padding>
@@ -78,7 +78,7 @@
                         <Image url="@../icons/register/fi-br-map-marker.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" disable="true" layoutX="89.0" layoutY="487.0" prefHeight="20.0" prefWidth="316.0" textFill="WHITE">
+                  <Label fx:id="lbInfo" alignment="CENTER" disable="true" layoutX="89.0" layoutY="487.0" prefHeight="20.0" prefWidth="316.0" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
