@@ -44,7 +44,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <stylesheets>
       <URL value="@style.css" />
    </stylesheets>
@@ -204,7 +204,7 @@
    </children>
 </AnchorPane>
 
-            <Button layoutX="834.0" layoutY="703.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="245.0" style="-fx-background-color: #6DA5D2; -fx-background-radius: 38px;" styleClass="saveButton" text="Salvar Formulário">
+            <Button layoutX="836.0" layoutY="671.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="245.0" style="-fx-background-color: #6DA5D2; -fx-background-radius: 38px;" styleClass="saveButton" text="Salvar Formulário">
                <font>
                   <Font size="15.0" />
                </font>
@@ -213,7 +213,7 @@
                </cursor>
             </Button>
             <Button layoutX="277.0" layoutY="718.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;" />
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1062.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1069.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/util/fi-bs-cross.png" />
                </image>

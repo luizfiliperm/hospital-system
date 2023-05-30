@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import com.lv.hospital.App;
 import com.lv.hospital.entities.Doctor;
-import com.lv.hospital.entities.enums.BrazilianState;
-import com.lv.hospital.services.DoctorService;
 import com.lv.hospital.util.PasswordUtils;
 
 import javafx.event.ActionEvent;
@@ -14,100 +12,62 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class LoginController {
+public class LoginController{
 
     @FXML
     private Button btLogin;
 
     @FXML
-    private Button btSignIn;
+    private Button btSignin;
 
     @FXML
-    private Label lbCheckFields;
+    private Label lbInfo;
 
     @FXML
-    private Label lbConfirmPassword;
-
-    @FXML
-    private TextField tfName;
+    private TextField tfLogin;
 
     @FXML
     private TextField tfPassword;
 
-    @FXML
-    private TextField tfConfirmPassword;
 
-    private Boolean isSignIn = false;
-
-    private DoctorService ds = new DoctorService();
-
+    private Doctor auxDoctor;
 
     @FXML
-    void SignIn(ActionEvent event) {
-        lbConfirmPassword.setVisible(true);
-        tfConfirmPassword.setVisible(true);
-        isSignIn = true;
-    }
-
-    @FXML
-    void logIn(ActionEvent event) throws IOException{
-        // New User
-        if(isSignIn){
-            if(checkIfPasswordIsValid()){
-                Doctor doctor = new Doctor(null, tfName.getText(), tfPassword.getText(), BrazilianState.PB, "Neurologista", "Teste@email.com");
-                ds.save(doctor);
-                instantiateDoctor(doctor);
-                ds.close();
-                changeToMenu();
-            }
-        }
-        // Existent User
-        else{
-            Doctor doctor = ds.findByName(tfName.getText());
-            if(doctor != null){
-                if(PasswordUtils.compare(tfPassword.getText(), doctor.getPassword())){
-                    instantiateDoctor(doctor);
-                    ds.close();
-                    changeToMenu();
-                }
-                else{
-                    lbCheckFields.setText("Senha incorreta");
-                }
-            }
-            else{
-                lbCheckFields.setText("Usuário não encontrado");
-            }
+    void login(ActionEvent event) throws IOException{
+        if(validateFields()){
+            App.loggedDoctor = auxDoctor;
+            App.setRoot("views/menu");
         }
     }
 
-    public Boolean checkIfPasswordIsValid(){
-        String password = tfPassword.getText();   
-        String checkPassword = tfConfirmPassword.getText();
+    private Boolean validateFields(){
 
-        if(tfName.getText().isEmpty() || tfPassword.getText().isEmpty() || tfConfirmPassword.getText().isEmpty()){
-            lbCheckFields.setText("Preencha todos os campos");
+        String crm = tfLogin.getText();
+        String password = tfPassword.getText();
+
+        if(crm.equals("") || password.equals("")){
+            lbInfo.setText("Preencha todos os campos!");
             return false;
         }
 
-        if(password.length() < 8){
-            lbCheckFields.setText("A senha deve ter no mínimo 8 caracteres");
+        Doctor auxDoctor = App.ds.findByCrm(crm);
+        if(auxDoctor == null){
+            lbInfo.setText("Usuário ou senha incorretos");
             return false;
         }
-
-        if(!password.equals(checkPassword)){
-            lbCheckFields.setText("As senhas não são iguais");
+        
+        if(!PasswordUtils.compare(password, auxDoctor.getPassword())){
+            lbInfo.setText("Usuário ou senha incorretos");
             return false;
         }
 
         return true;
     }
 
-    public void changeToMenu() throws IOException{
-        App.setRoot("views/menu");
+    @FXML
+    void signIn(ActionEvent event) throws IOException {
+        App.setRoot("views/signIn");
     }
 
-    public void instantiateDoctor(Doctor doctor){
-        App.loggedDoctor = doctor;
-    }
 
 }
