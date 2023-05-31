@@ -10,11 +10,14 @@ import java.io.IOException;
 
 import com.lv.hospital.entities.Doctor;
 import com.lv.hospital.services.DoctorService;
+import com.lv.hospital.services.PatientService;
 
 
 public class App extends Application {
 
     public static DoctorService ds = new DoctorService();
+
+    public static PatientService ps = new PatientService();
 
     public static Doctor loggedDoctor;
 

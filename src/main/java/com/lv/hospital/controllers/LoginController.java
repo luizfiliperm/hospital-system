@@ -51,7 +51,7 @@ public class LoginController{
             return false;
         }
 
-        Doctor auxDoctor = findDoctor();
+        auxDoctor = findDoctor();
         if(auxDoctor == null){
             lbInfo.setText("Usuário ou senha incorretos");
             return false;

@@ -27,6 +27,7 @@ public class PatientServiceTest {
     private static Long savedPatientId;
 
     private static Long doctorId;
+    private static Doctor doctor;
 
     @BeforeAll
     public static void setup() {
@@ -42,7 +43,7 @@ public class PatientServiceTest {
     @Order(0)
     public void createDoctor(){
         DoctorService doctorService = new DoctorService();
-        Doctor doctor = new Doctor(null, "Test", "Test", BrazilianState.PB, "Neurologista", "doctor@gmail.com");
+        doctor = new Doctor(null, "Test", "Test", BrazilianState.PB, "Neurologista", "doctor@gmail.com");
         doctorService.save(doctor);
         doctorService.close();
         doctorId = doctor.getId();
@@ -55,7 +56,7 @@ public class PatientServiceTest {
     public void testSave() {
         
         Patient patient = new Patient(null, "Test", 1, "(99) 99999-9999");
-        patientService.save(patient, doctorId);
+        patientService.save(patient, doctor);
         savedPatientId = patient.getId();
         assertNotNull(savedPatientId);
     }
