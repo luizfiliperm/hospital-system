@@ -1,6 +1,5 @@
 package com.lv.hospital.controllers;
 
-import java.io.IOException;
 
 import com.lv.hospital.App;
 import com.lv.hospital.entities.Doctor;
@@ -42,7 +41,7 @@ public class LoginController{
     }
 
     @FXML
-    void login(ActionEvent event) throws IOException{
+    void login(ActionEvent event){
         if(validateFields()){
             App.loggedDoctor = auxDoctor;
             App.setRoot("views/menu");
@@ -83,7 +82,7 @@ public class LoginController{
     }
 
     @FXML
-    void signIn(ActionEvent event) throws IOException {
+    void signIn(ActionEvent event) {
         App.setRoot("views/signIn");
     }
 

@@ -90,7 +90,7 @@ public class MenuController implements Initializable{
     @FXML
     private TextField tfName;
 
-    private Patient selectedPatient;
+    public static Patient selectedPatient;
     private Boolean isEditing;
 
     @FXML
@@ -221,11 +221,8 @@ public class MenuController implements Initializable{
         AnchorPane apPatient = new AnchorPane();
         configureAnchorPane(apPatient);
 
-        Label lbMrn = new Label(patient.getMrn() + " -");
-        configureMrnLabel(lbMrn);
-
-        Label lbName = new Label(patient.getName());
-        configureNameLabel(lbName);
+        Label lbInfo = new Label(patient.getMrn() + " - " + patient.getName());
+        configureInfoLabel(lbInfo, patient);
 
 
         Button btnEdit = new Button();
@@ -234,7 +231,7 @@ public class MenuController implements Initializable{
         Button btnDelete = new Button();
         configureDeleteButton(btnDelete, patient);
 
-        apPatient.getChildren().addAll(lbMrn, lbName, btnEdit, btnDelete);
+        apPatient.getChildren().addAll(lbInfo, btnEdit, btnDelete);
 
         return apPatient;
         
@@ -246,19 +243,28 @@ public class MenuController implements Initializable{
         apPatient.setPrefHeight(37);
     }
 
-    private void configureMrnLabel(Label lbMrn) {
-        lbMrn.setFont(new Font(16));
-        lbMrn.setTextFill(Color.WHITE);
-        lbMrn.setLayoutX(14);
-        lbMrn.setLayoutY(2);
+    private void configureInfoLabel(Label lbInfo, Patient patient) {
+        lbInfo.setFont(new Font(16));
+        lbInfo.setTextFill(Color.WHITE);
+        lbInfo.setLayoutX(14);
+        lbInfo.setLayoutY(2);
+
+        lbInfo.cursorProperty().set(javafx.scene.Cursor.HAND);
+        lbInfo.setOnMouseEntered(event -> {
+            lbInfo.setUnderline(true);
+        });
+
+        lbInfo.setOnMouseExited(event -> {
+            lbInfo.setUnderline(false);
+        });
+
+        // Mudar para a tela de consulta
+        lbInfo.setOnMouseClicked(event -> {
+            selectedPatient = patient;
+            App.setRoot("views/patientView");
+        });
     }
 
-    private void configureNameLabel(Label lbName) {
-        lbName.setFont(new Font(16));
-        lbName.setTextFill(Color.WHITE);
-        lbName.setLayoutX(80);
-        lbName.setLayoutY(2);
-    }
 
     private void configureEditButton(Button btnEdit, Patient patient) {
         btnEdit.setStyle("-fx-background-color: none;");
