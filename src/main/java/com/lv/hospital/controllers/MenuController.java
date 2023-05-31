@@ -1,9 +1,12 @@
 package com.lv.hospital.controllers;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.lv.hospital.App;
+import com.lv.hospital.controllers.util.AnchorPanePatients;
+import com.lv.hospital.controllers.util.FormatPatientFields;
 import com.lv.hospital.entities.Patient;
 
 import javafx.event.ActionEvent;
@@ -14,8 +17,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
-public class MenuController implements Initializable{
+public class MenuController implements Initializable {
 
     @FXML
     private AnchorPane apRegisterPacient;
@@ -63,12 +67,12 @@ public class MenuController implements Initializable{
     void closePatientRegister(ActionEvent event) {
         apRegisterPacient.setVisible(false);
         apRegisterPacient.setDisable(true);
-        
+
         resetFields();
 
     }
 
-    private void resetFields(){
+    private void resetFields() {
         tfName.setText("");
         tfAge.setText("");
         tfCellphone.setText("");
@@ -76,7 +80,7 @@ public class MenuController implements Initializable{
 
     @FXML
     void savePatient(ActionEvent event) {
-        if(validateFields()){
+        if (validateFields()) {
             String name = tfName.getText();
             Integer age = Integer.parseInt(tfAge.getText());
             String cellphone = tfCellphone.getText();
@@ -87,8 +91,8 @@ public class MenuController implements Initializable{
         }
     }
 
-    public boolean validateFields(){
-        if(tfName.getText().equals("") || tfAge.getText().equals("") || tfCellphone.getText().equals("")){
+    public boolean validateFields() {
+        if (tfName.getText().equals("") || tfAge.getText().equals("") || tfCellphone.getText().equals("")) {
             lbInfo.setText("Preencha todos os campos!");
             return false;
         }
@@ -103,12 +107,29 @@ public class MenuController implements Initializable{
         lbEspeciality.setText(App.loggedDoctor.getEspeciality());
 
         configureFields();
+        loadPatients();
     }
 
-    private void configureFields(){
+    private void configureFields() {
         FormatPatientFields.configureAge(tfAge);
         FormatPatientFields.configureCellphone(tfCellphone);
     }
 
+    private void loadPatients(){
+
+        VBox vbPatients = new VBox();
+        vbPatients.setStyle("-fx-background-color: #0a4164;");
+
+        List<Patient> patients = App.ps.findAllByDoctorId(App.loggedDoctor.getId());
+        
+        AnchorPanePatients apPatients = new AnchorPanePatients();
+
+        for (Patient patient : patients) {
+            AnchorPane apPatient = apPatients.newPatientAnchorPane(patient);
+            vbPatients.getChildren().add(apPatient);
+        }
+
+        spListPatients.setContent(vbPatients);
+    }
 
 }

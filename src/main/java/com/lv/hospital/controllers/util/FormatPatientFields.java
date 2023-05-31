@@ -1,4 +1,4 @@
-package com.lv.hospital.controllers;
+package com.lv.hospital.controllers.util;
 
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
