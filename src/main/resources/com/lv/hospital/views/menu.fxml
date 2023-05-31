@@ -55,12 +55,72 @@
                </children>
             </AnchorPane>
             <AnchorPane layoutX="316.0" layoutY="135.0" prefHeight="135.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" />
-            <Label alignment="CENTER" layoutX="339.0" layoutY="35.0" prefHeight="70.0" prefWidth="684.0" text="Raccoon General Hospital">
+            <Label alignment="CENTER" layoutX="339.0" layoutY="35.0" prefHeight="70.0" prefWidth="596.0" text="Raccoon General Hospital">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <AnchorPane fx:id="apRegisterPacient" layoutX="306.0" layoutY="59.0" prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: #B2B7C4; -fx-background-radius: 21px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" visible="false">
+            <AnchorPane fx:id="apDeletePatient" disable="true" layoutX="450.0" layoutY="220.0" prefHeight="259.0" prefWidth="447.0" style="-fx-background-color: #0a4164; -fx-background-radius: 21px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" visible="false">
+               <children>
+                  <Button fx:id="btDelete" layoutX="47.0" layoutY="175.0" mnemonicParsing="false" onAction="#deletePatient" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #DB0519; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" text="Apagar" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label fx:id="lbName" layoutX="88.0" layoutY="24.0" prefHeight="32.0" prefWidth="325.0" text="NOME COMPLETO DO PACIENTE" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="70.0" fitWidth="65.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/patient/fi-br-sad.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lbCellPhone" layoutX="93.0" layoutY="54.0" text="(99) 9 9999-9999" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="219.0" layoutY="54.0" text="Mrn:" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbMrn" layoutX="256.0" layoutY="54.0" prefHeight="25.0" prefWidth="58.0" text="000001" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="317.0" layoutY="54.0" text="Idade:" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbAge" layoutX="368.0" layoutY="54.0" text="71" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btCancel" layoutX="238.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancelDelete" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" text="Cancelar" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label alignment="CENTER" layoutX="50.0" layoutY="117.0" prefHeight="26.0" prefWidth="370.0" text="Tem Certeza que deseja apagar este Paciente?" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apRegisterPacient" disable="true" layoutX="306.0" layoutY="59.0" prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: #B2B7C4; -fx-background-radius: 21px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" visible="false">
                <children>
                   <Button fx:id="btRegisterPatient" layoutX="280.0" layoutY="412.0" mnemonicParsing="false" onAction="#savePatient" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: #0A4164; -fx-background-radius: 50;" text="Cadastrar" textFill="WHITE">
                      <font>
@@ -112,7 +172,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label alignment="CENTER" layoutX="207.0" layoutY="46.0" styleClass="patientRegisterTittle" stylesheets="@style.css" text="Cadastro do Paciente">
+                  <Label fx:id="lbRegisterTitle" alignment="CENTER" layoutX="129.0" layoutY="46.0" prefHeight="53.0" prefWidth="492.0" styleClass="patientRegisterTittle" stylesheets="@style.css" text="Cadastro do Paciente">
                      <font>
                         <Font size="36.0" />
                      </font>
