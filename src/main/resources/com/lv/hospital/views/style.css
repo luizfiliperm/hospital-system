@@ -52,3 +52,39 @@
     background-color:  #0a4164 !important;
 }
 
+.spListPatients .scroll-bar:vertical .thumb {
+    -fx-background-color: #6DA5D2 !important;
+    background-color: #6DA5D2 !important;
+}
+
+.spListPatients .scroll-bar:vertical .track {
+    -fx-background-color: #0a4164 !important;
+    background-color: #0a4164 !important;
+}
+
+.spListPatients > .scroll-bar:vertical > .increment-button,
+.spListPatients > .scroll-bar:vertical > .decrement-button {
+    -fx-padding: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.scroll-bar > .increment-button,
+.scroll-bar > .decrement-button {
+    -fx-padding: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.scroll-bar:vertical > .increment-button,
+.scroll-bar:vertical > .decrement-button {
+    -fx-background-insets: 0 0 0 0, 0 0 0 0, 0 0 0 0;
+}
+
+.scroll-bar:vertical > .decrement-button > .decrement-arrow {
+    -fx-padding: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.scroll-bar:vertical > .increment-button > .increment-arrow {
+    -fx-padding: 0 0 0 0;
+    padding: 0 0 0 0;
+}
