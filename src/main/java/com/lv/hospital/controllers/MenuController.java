@@ -37,6 +37,9 @@ public class MenuController implements Initializable{
     private Button btCancel;
 
     @FXML
+    private Button btClose;
+
+    @FXML
     private Button btClosePatientRegister;
 
     @FXML
@@ -89,6 +92,11 @@ public class MenuController implements Initializable{
 
     private Patient selectedPatient;
     private Boolean isEditing;
+
+    @FXML
+    void closeApplication(ActionEvent event) {
+        System.exit(0);
+    }
 
     @FXML
     void addPacient(ActionEvent event) {

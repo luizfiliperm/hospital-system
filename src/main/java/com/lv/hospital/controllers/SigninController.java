@@ -21,6 +21,9 @@ import javafx.util.StringConverter;
 public class SigninController implements Initializable{
 
     @FXML
+    private Button btClose;
+
+    @FXML
     private Button btBack;
 
     @FXML
@@ -44,6 +47,11 @@ public class SigninController implements Initializable{
     @FXML
     private ComboBox<BrazilianState> cbState;
 
+
+    @FXML
+    void closeApplication(ActionEvent event) {
+        System.exit(0);
+    }
 
     @FXML
     void backToLogin(ActionEvent event) throws IOException {
