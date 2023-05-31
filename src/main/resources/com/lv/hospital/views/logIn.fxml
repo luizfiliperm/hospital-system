@@ -35,6 +35,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -77,10 +78,10 @@
                         <Image url="@../icons/register/fi-br-doctor.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="tfPassword" layoutX="90.0" layoutY="361.0" prefHeight="33.0" prefWidth="317.0" promptText="Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                  <PasswordField fx:id="tfPassword" layoutX="90.0" layoutY="361.0" prefHeight="33.0" prefWidth="317.0" promptText="Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                      <padding>
                         <Insets left="35.0" />
-                     </padding></TextField>
+                     </padding></PasswordField>
                   <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="96.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-lock.png" />

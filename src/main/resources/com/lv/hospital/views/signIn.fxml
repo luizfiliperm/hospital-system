@@ -2,7 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -34,25 +36,28 @@
                   <TextField fx:id="tfEmail" layoutX="88.0" layoutY="203.0" prefHeight="33.0" prefWidth="317.0" promptText="Email" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" AnchorPane.leftAnchor="88.0">
                      <padding>
                         <Insets left="35.0" />
-                     </padding></TextField>
+                     </padding>
+                  </TextField>
                   <TextField fx:id="tfName" layoutX="88.0" layoutY="253.0" prefHeight="33.0" prefWidth="317.0" promptText="Name" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                      <padding>
                         <Insets left="35.0" />
-                     </padding></TextField>
-                  <TextField fx:id="tfPassword" layoutX="88.0" layoutY="306.0" prefHeight="33.0" prefWidth="317.0" promptText="Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
-                     <padding>
-                        <Insets left="35.0" />
-                     </padding></TextField>
-                  <TextField fx:id="tfConfirmPassword" layoutX="88.0" layoutY="360.0" prefHeight="33.0" prefWidth="317.0" promptText="Confirm Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                     </padding>
+                  </TextField>
+                  <PasswordField fx:id="tfPassword" layoutX="88.0" layoutY="360.0" prefHeight="33.0" prefWidth="317.0" promptText="Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                      <padding>
                         <Insets left="35.0" />
                      </padding>
-                  </TextField>
-                  <TextField fx:id="tfState" layoutX="88.0" layoutY="415.0" prefHeight="33.0" prefWidth="317.0" promptText="State" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                  </PasswordField>
+                  <PasswordField fx:id="tfConfirmPassword" layoutX="88.0" layoutY="415.0" prefHeight="33.0" prefWidth="317.0" promptText="Confirm Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" AnchorPane.leftAnchor="88.0">
                      <padding>
                         <Insets left="35.0" />
                      </padding>
-                  </TextField>
+                  </PasswordField>
+                  <ComboBox fx:id="cbState" layoutX="88.0" layoutY="306.0" prefHeight="33.0" prefWidth="317.0" promptText="State" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                  </ComboBox>
                   <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="96.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-at.png" />
@@ -63,17 +68,17 @@
                         <Image url="@../icons/register/fi-br-user.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="95.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="95.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-lock.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="95.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="95.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-unlock.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="95.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="95.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/register/fi-br-map-marker.png" />
                      </image>
@@ -92,7 +97,8 @@
                         <Image url="@../icons/util/fi-br-angle-left.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </children>
