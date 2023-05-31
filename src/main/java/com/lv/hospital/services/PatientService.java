@@ -20,9 +20,7 @@ public class PatientService {
         em = emf.createEntityManager();
     }
     
-    public void save(Patient patient, Long doctorId) {
-        
-        Doctor doctor = em.find(Doctor.class, doctorId);
+    public void save(Patient patient, Doctor doctor) {
         
         if(doctor != null){
             patient.setDoctor(doctor);

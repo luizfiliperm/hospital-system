@@ -1,38 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
-  All rights reserved. Use is subject to license terms.
-
-  This file is available and licensed under the following license:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
-  are met:
-
-  - Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  - Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in
-    the documentation and/or other materials provided with the distribution.
-  - Neither the name of Oracle Corporation nor the names of its
-    contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -40,8 +13,8 @@
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lv.hospital.controllers.MenuController">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: B2B7C4;" VBox.vgrow="ALWAYS">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: B2B7C4;" VBox.vgrow="ALWAYS">
          <children>
             <AnchorPane layoutX="-30.0" prefHeight="711.0" prefWidth="261.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;">
                <children>
@@ -55,18 +28,189 @@
                         <Image url="@../icons/menu/fi-br-portrait.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="124.0" layoutY="47.0" text="Especialidade" textFill="WHITE" />
-                  <Label layoutX="124.0" layoutY="64.0" text="CRM" textFill="WHITE" />
+                  <Label fx:id="lbEspeciality" layoutX="124.0" layoutY="47.0" prefWidth="107.0" text="Especialidade" textFill="WHITE" />
+                  <Label fx:id="lbCrm" layoutX="124.0" layoutY="64.0" prefHeight="17.0" prefWidth="107.0" text="CRM" textFill="WHITE" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="316.0" layoutY="309.0" prefHeight="350.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" />
-            <AnchorPane layoutX="316.0" layoutY="135.0" prefHeight="135.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" />
-            <Label alignment="CENTER" layoutX="339.0" layoutY="35.0" prefHeight="70.0" prefWidth="684.0" text="Raccoon General Hospital">
+            <AnchorPane layoutX="316.0" layoutY="309.0" prefHeight="350.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;">
+               <children>
+                  <Label layoutX="23.0" layoutY="14.0" text="Lista de Pacientes" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btAddPacient" layoutX="676.0" layoutY="304.0" mnemonicParsing="false" onAction="#addPacient" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/menu/fi-br-add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ScrollPane fx:id="spListPatients" layoutX="23.0" layoutY="50.0" prefHeight="269.0" prefWidth="644.0" style="-fx-background-color: none;" styleClass="spListPatients" stylesheets="@style.css" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="316.0" layoutY="135.0" prefHeight="135.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;">
+               <children>
+                  <Label fx:id="lbRegistredPatients" layoutX="32.0" layoutY="9.0" prefHeight="118.0" prefWidth="144.0" text="000" textFill="WHITE">
+                     <font>
+                        <Font size="80.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="176.0" layoutY="41.0" prefHeight="17.0" prefWidth="447.0" text="Pacientes Cadastrados" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+            <Label alignment="CENTER" layoutX="339.0" layoutY="35.0" prefHeight="70.0" prefWidth="596.0" text="Raccoon General Hospital">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
+            <AnchorPane fx:id="apDeletePatient" disable="true" layoutX="450.0" layoutY="220.0" prefHeight="259.0" prefWidth="447.0" style="-fx-background-color: #0a4164; -fx-background-radius: 21px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" visible="false">
+               <children>
+                  <Button fx:id="btDelete" layoutX="47.0" layoutY="175.0" mnemonicParsing="false" onAction="#deletePatient" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #DB0519; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" styleClass="patientDeleteButton" stylesheets="@style.css" text="Apagar" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label fx:id="lbName" layoutX="88.0" layoutY="24.0" prefHeight="32.0" prefWidth="325.0" text="NOME COMPLETO DO PACIENTE" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="70.0" fitWidth="65.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/patient/fi-br-sad.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lbCellPhone" layoutX="93.0" layoutY="54.0" text="(99) 9 9999-9999" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="219.0" layoutY="54.0" text="Mrn:" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbMrn" layoutX="256.0" layoutY="54.0" prefHeight="25.0" prefWidth="58.0" text="000001" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="317.0" layoutY="54.0" text="Idade:" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbAge" layoutX="368.0" layoutY="54.0" text="71" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btCancel" layoutX="238.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancelDelete" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" styleClass="patientCancelDeleteButton" stylesheets="@style.css" text="Cancelar">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label alignment="CENTER" layoutX="50.0" layoutY="117.0" prefHeight="26.0" prefWidth="370.0" text="Tem Certeza que deseja apagar este Paciente?" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apRegisterPacient" disable="true" layoutX="306.0" layoutY="59.0" prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: #B2B7C4; -fx-background-radius: 21px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" visible="false">
+               <children>
+                  <Button fx:id="btRegisterPatient" layoutX="280.0" layoutY="412.0" mnemonicParsing="false" onAction="#savePatient" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: #0A4164; -fx-background-radius: 50;" styleClass="registerPatientButton" stylesheets="@style.css" text="Cadastrar" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <TextField fx:id="tfName" layoutX="185.0" layoutY="177.0" prefHeight="40.0" prefWidth="381.0" promptText="Nome" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                  </TextField>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="191.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/register/fi-br-user.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="tfAge" layoutX="185.0" layoutY="250.0" prefHeight="40.0" prefWidth="381.0" promptText="Idade" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                  </TextField>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="191.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/register/fi-br-child-head.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="tfCellphone" layoutX="185.0" layoutY="329.0" prefHeight="40.0" prefWidth="381.0" promptText="Telefone" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                  </TextField>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="191.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/register/fi-br-phone-call.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btClosePatientRegister" layoutX="696.0" layoutY="14.0" mnemonicParsing="false" onAction="#closePatientRegister" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/util/fi-bs-cross.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label fx:id="lbRegisterTitle" alignment="CENTER" layoutX="129.0" layoutY="46.0" prefHeight="53.0" prefWidth="492.0" styleClass="patientRegisterTittle" stylesheets="@style.css" text="Cadastro do Paciente">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbInfo" alignment="CENTER" layoutX="218.0" layoutY="381.0" prefHeight="20.0" prefWidth="316.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+            <Button fx:id="btClose" layoutX="1052.0" layoutY="8.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/util/fi-bs-cross.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
-    </AnchorPane>
-  </children>
+      </AnchorPane>
+   </children>
 </VBox>

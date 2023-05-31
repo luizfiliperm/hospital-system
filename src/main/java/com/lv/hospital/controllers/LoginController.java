@@ -22,6 +22,9 @@ public class LoginController{
     private Button btSignin;
 
     @FXML
+    private Button btClose;
+
+    @FXML
     private Label lbInfo;
 
     @FXML
@@ -32,6 +35,11 @@ public class LoginController{
 
 
     private Doctor auxDoctor;
+
+    @FXML
+    void closeApplication(ActionEvent event) {
+        System.exit(0);
+    }
 
     @FXML
     void login(ActionEvent event) throws IOException{
@@ -51,7 +59,7 @@ public class LoginController{
             return false;
         }
 
-        Doctor auxDoctor = findDoctor();
+        auxDoctor = findDoctor();
         if(auxDoctor == null){
             lbInfo.setText("Usuário ou senha incorretos");
             return false;
