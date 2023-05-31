@@ -73,6 +73,9 @@ public class MenuController implements Initializable{
     private Label lbRegisterTitle;
 
     @FXML
+    private Label lbRegistredPatients;
+
+    @FXML
     private ScrollPane spListPatients;
 
     @FXML
@@ -203,6 +206,7 @@ public class MenuController implements Initializable{
         }
 
         spListPatients.setContent(vbPatients);
+        lbRegistredPatients.setText("" + patients.size());
     }
 
     public AnchorPane newPatientAnchorPane(Patient patient) {
