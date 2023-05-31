@@ -1,6 +1,8 @@
 package com.lv.hospital.controllers;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.lv.hospital.App;
 import com.lv.hospital.entities.Doctor;
@@ -8,12 +10,15 @@ import com.lv.hospital.entities.enums.BrazilianState;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.util.StringConverter;
 
-public class SigninController{
+public class SigninController implements Initializable{
 
     @FXML
     private Button btBack;
@@ -37,7 +42,7 @@ public class SigninController{
     private PasswordField tfPassword;
 
     @FXML
-    private TextField tfState;
+    private ComboBox<BrazilianState> cbState;
 
 
     @FXML
@@ -53,10 +58,10 @@ public class SigninController{
             String name = tfName.getText();
             String email = tfEmail.getText();
             String password = tfPassword.getText();
-            String state = tfState.getText();
+            BrazilianState state = cbState.getValue();
             String confirmPassword = tfConfirmPassword.getText();
 
-            Doctor newDoctor = new Doctor(null, name, password, BrazilianState.AC, confirmPassword, email);
+            Doctor newDoctor = new Doctor(null, name, password, state, confirmPassword, email);
 
             App.ds.save(newDoctor);
             App.loggedDoctor = newDoctor;
@@ -106,11 +111,29 @@ public class SigninController{
         if(tfEmail.getText().equals("")){
             return false;
         }
-        if(tfState.getText().equals("")){
+        if(cbState.getValue() == null){
             return false;
         }
+        
 
         return true;
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        cbState.getItems().addAll(BrazilianState.values());
+
+        cbState.setConverter(new StringConverter<BrazilianState>() {
+            @Override
+            public String toString(BrazilianState state) {
+                return state.getName();
+            }
+
+            @Override
+            public BrazilianState fromString(String string) {
+                return null;
+            }
+        });
     }
 
 
