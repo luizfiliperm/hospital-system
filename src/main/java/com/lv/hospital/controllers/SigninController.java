@@ -1,6 +1,5 @@
 package com.lv.hospital.controllers;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -54,12 +53,12 @@ public class SigninController implements Initializable{
     }
 
     @FXML
-    void backToLogin(ActionEvent event) throws IOException {
+    void backToLogin(ActionEvent event) {
         App.setRoot("views/logIn");
     }
 
     @FXML
-    void signIn(ActionEvent event) throws IOException {
+    void signIn(ActionEvent event) {
 
         if (validateFields()) {
 

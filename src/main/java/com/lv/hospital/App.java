@@ -71,10 +71,15 @@ public class App extends Application {
         stage.setY(event.getScreenY() - yOffset);
     }
 
-    public static void setRoot(String fxml) throws IOException {
-        Parent root = loadFXML(fxml);
-        setDraggable(root, (Stage) scene.getWindow());
-        scene.setRoot(root);
+    public static void setRoot(String fxml){
+        try{
+            Parent root = loadFXML(fxml);
+            setDraggable(root, (Stage) scene.getWindow());
+            scene.setRoot(root);
+        }catch(IOException e){
+            System.out.println("Error trying to change scene!");
+            e.printStackTrace();
+        }
     }
 
     public static Parent loadFXML(String fxml) throws IOException {

@@ -44,7 +44,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lv.hospital.controllers.PatientViewController">
    <stylesheets>
       <URL value="@style.css" />
    </stylesheets>
@@ -53,7 +53,7 @@
          <children>
             <AnchorPane layoutX="-13.0" layoutY="-7.0" prefHeight="188.0" prefWidth="593.0" style="-fx-background-radius: 22px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-background-color: #0A4164;">
                <children>
-                  <Label layoutX="137.0" layoutY="59.0" prefHeight="47.0" prefWidth="417.0" text="NOME COMPLETO DO PACIENTE" textFill="WHITE">
+                  <Label fx:id="lbPatientName" layoutX="137.0" layoutY="59.0" prefHeight="47.0" prefWidth="417.0" text="NOME COMPLETO DO PACIENTE" textFill="WHITE">
                      <font>
                         <Font size="27.0" />
                      </font>
@@ -68,17 +68,17 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="206.0" layoutY="94.0" text="(99) 9 9999-9999" textFill="WHITE">
+                  <Label fx:id="lbPatientPhone" layoutX="206.0" layoutY="94.0" text="(99) 9 9999-9999" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="335.0" layoutY="94.0" text="NPM:" textFill="WHITE">
+                  <Label layoutX="335.0" layoutY="94.0" text="MRN:" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="385.0" layoutY="94.0" text="00000001" textFill="WHITE">
+                  <Label fx:id="lbPatientMrn" layoutX="385.0" layoutY="94.0" text="00000001" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -88,19 +88,23 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="510.0" layoutY="94.0" text="71" textFill="WHITE">
+                  <Label fx:id="lbPatientAge" layoutX="510.0" layoutY="94.0" text="71" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/util/fi-br-angle-left.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
+                  <Button fx:id="btBack" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMenu" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/util/fi-br-angle-left.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="655.0" layoutY="33.0" prefHeight="120.0" prefWidth="397.0" style="-fx-background-color: #6DA5D2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-background-radius: 29px;">
@@ -110,27 +114,34 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="174.0" layoutY="37.0" prefHeight="47.0" prefWidth="50.0" text="12">
+                  <Label fx:id="lbTestPontuation" alignment="CENTER" layoutX="174.0" layoutY="37.0" prefHeight="47.0" prefWidth="50.0" text="-">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="112.0" layoutY="84.0" prefHeight="21.0" prefWidth="175.0" text="Coma Superficial">
+                  <Label fx:id="lbTestResult" alignment="CENTER" layoutX="112.0" layoutY="84.0" prefHeight="21.0" prefWidth="175.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="359.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/patient/fi-br-info.png" />
-                     </image>
+                  <Button fx:id="btInfo" layoutX="343.0" layoutY="5.0" mnemonicParsing="false" onAction="#openInfo" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/patient/fi-br-info.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImageView>
+                  </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="10.0" layoutY="232.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
+            <AnchorPane layoutX="12.0" layoutY="195.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
    <children>
       <Label layoutX="74.0" layoutY="14.0" text="Abertura Ocular" textFill="WHITE">
          <font>
@@ -148,7 +159,7 @@
    </children>
 </AnchorPane>
 
-            <AnchorPane layoutX="284.0" layoutY="232.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
+            <AnchorPane layoutX="286.0" layoutY="195.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
    <children>
       <Label layoutX="73.0" layoutY="14.0" text="Resposta Verbal" textFill="WHITE">
          <font>
@@ -167,7 +178,7 @@
    </children>
 </AnchorPane>
 
-            <AnchorPane layoutX="556.0" layoutY="232.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
+            <AnchorPane layoutX="558.0" layoutY="195.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
    <children>
       <Label layoutX="70.0" layoutY="14.0" text="Resposta Motora" textFill="WHITE">
          <font>
@@ -187,7 +198,7 @@
    </children>
 </AnchorPane>
 
-           <AnchorPane layoutX="826.0" layoutY="232.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
+           <AnchorPane layoutX="828.0" layoutY="195.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
    <children>
       <Label layoutX="71.0" layoutY="14.0" text="Resposta Pupilar" textFill="WHITE">
          <font>
@@ -204,7 +215,7 @@
    </children>
 </AnchorPane>
 
-            <Button layoutX="836.0" layoutY="671.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="245.0" style="-fx-background-color: #6DA5D2; -fx-background-radius: 38px;" styleClass="saveButton" text="Salvar Formulário">
+            <Button fx:id="btSaveForm" layoutX="836.0" layoutY="626.0" mnemonicParsing="false" onAction="#saveForm" prefHeight="54.0" prefWidth="245.0" style="-fx-background-color: #6DA5D2; -fx-background-radius: 38px;" styleClass="saveButton" text="Salvar Formulário">
                <font>
                   <Font size="15.0" />
                </font>
@@ -212,15 +223,20 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="277.0" layoutY="718.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;" />
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1069.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/util/fi-bs-cross.png" />
-               </image>
+            <Button fx:id="btClose" layoutX="1046.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/util/fi-bs-cross.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
+               </cursor></Button>
          </children>
       </AnchorPane>
    </children>
