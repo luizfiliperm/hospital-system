@@ -70,22 +70,28 @@
             </Label>
             <AnchorPane layoutX="570.0" layoutY="32.0" prefHeight="626.0" prefWidth="492.0" style="-fx-background-color: #0a4164; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
                <children>
-                  <Button fx:id="btLogin" layoutX="154.0" layoutY="514.0" mnemonicParsing="false" onAction="#login" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" text="Entrar" textFill="WHITE">
+                  <Button fx:id="btLogin" layoutX="154.0" layoutY="514.0" mnemonicParsing="false" onAction="#login" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" styleClass="loginButton" stylesheets="@style.css" text="Entrar" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button fx:id="btSignin" layoutX="206.0" layoutY="563.0" mnemonicParsing="false" onAction="#signIn" style="-fx-background-color: none;" text="Cadastre-se" textFill="#b2b7c4">
+                  <Button fx:id="btSignin" layoutX="206.0" layoutY="563.0" mnemonicParsing="false" onAction="#signIn" style="-fx-background-color: none;" styleClass="registerButton" stylesheets="@style.css" text="Cadastre-se" textFill="#b2b7c4">
                      <font>
                         <Font size="13.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Label layoutX="203.0" layoutY="110.0" text="Login" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tfLogin" layoutX="90.0" layoutY="297.0" prefHeight="33.0" prefWidth="317.0" promptText="CRM" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" AnchorPane.leftAnchor="90.0">
+                  <TextField fx:id="tfLogin" layoutX="90.0" layoutY="297.0" prefHeight="33.0" prefWidth="317.0" promptText="CRM ou Email" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" AnchorPane.leftAnchor="90.0">
                      <padding>
                         <Insets left="35.0" />
                      </padding></TextField>

@@ -74,7 +74,7 @@
             </Label>
             <AnchorPane fx:id="apDeletePatient" disable="true" layoutX="450.0" layoutY="220.0" prefHeight="259.0" prefWidth="447.0" style="-fx-background-color: #0a4164; -fx-background-radius: 21px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" visible="false">
                <children>
-                  <Button fx:id="btDelete" layoutX="47.0" layoutY="175.0" mnemonicParsing="false" onAction="#deletePatient" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #DB0519; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" text="Apagar" textFill="WHITE">
+                  <Button fx:id="btDelete" layoutX="47.0" layoutY="175.0" mnemonicParsing="false" onAction="#deletePatient" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #DB0519; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" styleClass="patientDeleteButton" stylesheets="@style.css" text="Apagar" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -117,7 +117,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btCancel" layoutX="238.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancelDelete" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" text="Cancelar" textFill="WHITE">
+                  <Button fx:id="btCancel" layoutX="238.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancelDelete" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" styleClass="patientCancelDeleteButton" stylesheets="@style.css" text="Cancelar">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -134,7 +134,7 @@
             </AnchorPane>
             <AnchorPane fx:id="apRegisterPacient" disable="true" layoutX="306.0" layoutY="59.0" prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: #B2B7C4; -fx-background-radius: 21px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" visible="false">
                <children>
-                  <Button fx:id="btRegisterPatient" layoutX="280.0" layoutY="412.0" mnemonicParsing="false" onAction="#savePatient" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: #0A4164; -fx-background-radius: 50;" text="Cadastrar" textFill="WHITE">
+                  <Button fx:id="btRegisterPatient" layoutX="280.0" layoutY="412.0" mnemonicParsing="false" onAction="#savePatient" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: #0A4164; -fx-background-radius: 50;" styleClass="registerPatientButton" stylesheets="@style.css" text="Cadastrar" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>

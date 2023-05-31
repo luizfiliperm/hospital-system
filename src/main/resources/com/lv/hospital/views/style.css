@@ -1,3 +1,24 @@
+/* login */
+
+.loginButton:hover {
+    -fx-background-color: #DB0519 !important;
+    background-color: #DB0519 !important;
+    -fx-text-fill: white;
+}
+
+.registerButton:hover {
+    -fx-text-fill: white !important;
+}
+
+/* login */
+
+/* signup */
+.signInRegisterButton:hover {
+    -fx-background-color: #DB0519 !important;
+    background-color: #DB0519 !important;
+    -fx-text-fill: white;
+}
+
 
 /* patient view */
 
@@ -88,3 +109,25 @@
     -fx-padding: 0 0 0 0;
     padding: 0 0 0 0;
 }
+
+
+.registerPatientButton:hover {
+    -fx-background-color: #DB0519 !important;
+    background-color: #DB0519 !important;
+    -fx-text-fill: white;
+}
+
+.patientCancelDeleteButton:hover {
+    -fx-background-color: #DB0519 !important;
+    background-color: #DB0519 !important;
+    -fx-text-fill: white;
+}
+
+.patientDeleteButton:hover {
+    -fx-background-color: #6DA5D2 !important;
+    background-color: #6DA5D2 !important;
+    -fx-text-fill: black;
+}
+
+
+/* menu */
