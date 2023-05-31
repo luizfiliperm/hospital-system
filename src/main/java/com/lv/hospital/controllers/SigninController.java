@@ -59,9 +59,8 @@ public class SigninController implements Initializable{
             String email = tfEmail.getText();
             String password = tfPassword.getText();
             BrazilianState state = cbState.getValue();
-            String confirmPassword = tfConfirmPassword.getText();
 
-            Doctor newDoctor = new Doctor(null, name, password, state, confirmPassword, email);
+            Doctor newDoctor = new Doctor(null, name, password, state, "Neurologista", email);
 
             App.ds.save(newDoctor);
             App.loggedDoctor = newDoctor;
