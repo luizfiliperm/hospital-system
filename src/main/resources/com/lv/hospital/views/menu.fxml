@@ -16,9 +16,9 @@
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: B2B7C4;" VBox.vgrow="ALWAYS">
          <children>
-            <AnchorPane layoutX="-30.0" prefHeight="711.0" prefWidth="261.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;">
+            <AnchorPane layoutX="-30.0" prefHeight="711.0" prefWidth="261.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" styleClass="apPerfil" stylesheets="@style.css">
                <children>
-                  <Label fx:id="lbDoctorName" layoutX="123.0" layoutY="22.0" text="Doctor Name" textFill="WHITE">
+                  <Label fx:id="lbDoctorName" layoutX="117.0" layoutY="20.0" text="Doctor Name" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -28,11 +28,66 @@
                         <Image url="@../icons/menu/fi-br-portrait.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="lbEspeciality" layoutX="124.0" layoutY="47.0" prefWidth="107.0" text="Especialidade" textFill="WHITE" />
-                  <Label fx:id="lbCrm" layoutX="124.0" layoutY="64.0" prefHeight="17.0" prefWidth="107.0" text="CRM" textFill="WHITE" />
+                  <Label fx:id="lbEspeciality" layoutX="118.0" layoutY="45.0" prefWidth="107.0" text="Especialidade" textFill="WHITE" />
+                  <Label fx:id="lbCrm" layoutX="118.0" layoutY="62.0" prefHeight="17.0" prefWidth="107.0" text="CRM" textFill="WHITE" />
+                  <Button layoutX="39.0" layoutY="665.0" mnemonicParsing="false" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fx:id="btLogout" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/menu/fi-br-sign-in.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="204.0" layoutY="665.0" mnemonicParsing="false" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fx:id="idEditPerfil" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/menu/fi-br-magic-wand.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ImageView fitHeight="180.0" fitWidth="212.0" layoutX="42.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/menu/calendar.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="79.0" layoutY="140.0" text="Agenda do dia" textFill="#f5f5f5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="45.0" layoutY="534.0" prefHeight="118.0" prefWidth="200.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 8, 0, 6, 2); -fx-background-color: #6da5d2; -fx-background-radius: 30;" visible="false">
+                     <children>
+                        <Label layoutX="36.0" layoutY="27.0" text="Deseja mesmo sair?">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="28.0" layoutY="65.0" mnemonicParsing="false" style="-fx-background-color: none;" text="Sim">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/menu/rosto-triste-em-quadrado-arredondado.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="106.0" layoutY="65.0" mnemonicParsing="false" style="-fx-background-color: none;" text="Não">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/menu/sorriso.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="316.0" layoutY="309.0" prefHeight="350.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;">
+            <AnchorPane layoutX="316.0" layoutY="309.0" prefHeight="350.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" styleClass="apLista" stylesheets="@style.css">
                <children>
                   <Label layoutX="23.0" layoutY="14.0" text="Lista de Pacientes" textFill="WHITE">
                      <font>
@@ -52,9 +107,19 @@
                      </cursor>
                   </Button>
                   <ScrollPane fx:id="spListPatients" layoutX="23.0" layoutY="50.0" prefHeight="269.0" prefWidth="644.0" style="-fx-background-color: none;" styleClass="spListPatients" stylesheets="@style.css" />
+                  <TextField layoutX="279.0" layoutY="17.0" prefHeight="25.0" prefWidth="417.0" promptText="Pesquisar paciente" style="-fx-background-radius: 50;" />
+                  <Button layoutX="656.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/menu/lupa.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="316.0" layoutY="135.0" prefHeight="135.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;">
+            <AnchorPane layoutX="316.0" layoutY="142.0" prefHeight="135.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" styleClass="apCont" stylesheets="@style.css">
                <children>
                   <Label fx:id="lbRegistredPatients" layoutX="32.0" layoutY="9.0" prefHeight="118.0" prefWidth="144.0" text="000" textFill="WHITE">
                      <font>
@@ -67,7 +132,7 @@
                      </font>
                   </Label>
                </children></AnchorPane>
-            <Label alignment="CENTER" layoutX="339.0" layoutY="35.0" prefHeight="70.0" prefWidth="596.0" text="Raccoon General Hospital">
+            <Label alignment="CENTER" layoutX="339.0" layoutY="35.0" prefHeight="70.0" prefWidth="596.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 8, 0, 6, 2);" text="Raccoon General Hospital">
                <font>
                   <Font size="36.0" />
                </font>
