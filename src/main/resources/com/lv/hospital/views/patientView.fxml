@@ -104,6 +104,9 @@
                            </cursor>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </AnchorPane>
@@ -148,14 +151,26 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="eyeOpenSpontaneous" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Espontânea" textFill="WHITE">
+      <RadioButton fx:id="eyeOpenSpontaneous" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" onAction="#setEyeOpening" prefHeight="17.0" prefWidth="175.0" text="Espontânea" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="eyeOpening" />
          </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
       </RadioButton>
-      <RadioButton fx:id="eyeOpenVoice" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="À Voz" textFill="WHITE" toggleGroup="$eyeOpening" />
-      <RadioButton fx:id="eyeOpenPain" layoutX="33.0" layoutY="130.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="À Dor" textFill="WHITE" toggleGroup="$eyeOpening" />
-      <RadioButton fx:id="eyeOpenNone" layoutX="33.0" layoutY="157.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$eyeOpening" />
+      <RadioButton fx:id="eyeOpenVoice" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" onAction="#setEyeOpening" prefHeight="17.0" prefWidth="175.0" text="À Voz" textFill="WHITE" toggleGroup="$eyeOpening">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="eyeOpenPain" layoutX="33.0" layoutY="132.0" mnemonicParsing="false" onAction="#setEyeOpening" prefHeight="17.0" prefWidth="175.0" text="À Dor" textFill="WHITE" toggleGroup="$eyeOpening">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="eyeOpenNone" layoutX="33.0" layoutY="165.0" mnemonicParsing="false" onAction="#setEyeOpening" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$eyeOpening">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
    </children>
 </AnchorPane>
 
@@ -166,15 +181,30 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="verbalResponseOriented" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Orientada" textFill="WHITE">
+      <RadioButton fx:id="verbalResponseOriented" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" onAction="#setVerbalResponse" prefHeight="17.0" prefWidth="175.0" text="Orientada" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="verbalResponse" />
          </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
       </RadioButton>
-      <RadioButton fx:id="verbalResponseConfused" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Confusa" textFill="WHITE" toggleGroup="$verbalResponse" />
-      <RadioButton fx:id="verbalResponseInappropriate" layoutX="33.0" layoutY="130.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Palavras Inapropriadas" textFill="WHITE" toggleGroup="$verbalResponse" />
-      <RadioButton fx:id="verbalResponseIncomprehensible" layoutX="33.0" layoutY="160.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Palavras Incompreensíveis" textFill="WHITE" toggleGroup="$verbalResponse" />
-      <RadioButton fx:id="verbalResponseNone" layoutX="33.0" layoutY="186.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$verbalResponse" />
+      <RadioButton fx:id="verbalResponseConfused" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" onAction="#setVerbalResponse" prefHeight="17.0" prefWidth="175.0" text="Confusa" textFill="WHITE" toggleGroup="$verbalResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="verbalResponseInappropriate" layoutX="33.0" layoutY="132.0" mnemonicParsing="false" onAction="#setVerbalResponse" prefHeight="17.0" prefWidth="175.0" text="Palavras Inapropriadas" textFill="WHITE" toggleGroup="$verbalResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="verbalResponseIncomprehensible" layoutX="33.0" layoutY="165.0" mnemonicParsing="false" onAction="#setVerbalResponse" prefHeight="17.0" prefWidth="175.0" text="Palavras Incompreensíveis" textFill="WHITE" toggleGroup="$verbalResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="verbalResponseNone" layoutX="33.0" layoutY="198.0" mnemonicParsing="false" onAction="#setVerbalResponse" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$verbalResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
    </children>
 </AnchorPane>
 
@@ -185,16 +215,34 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="motorResponseObey" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Obedece a Comandos" textFill="WHITE">
+      <RadioButton fx:id="motorResponseObey" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Obedece a Comandos" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="motorResponse" />
          </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
       </RadioButton>
-      <RadioButton fx:id="motorResponseLocate" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Localiza a Dor" textFill="WHITE" toggleGroup="$motorResponse" />
-      <RadioButton fx:id="motorResponseWithdrawal" layoutX="33.0" layoutY="130.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Movimentos de Retirada" textFill="WHITE" toggleGroup="$motorResponse" />
-      <RadioButton fx:id="motorResponseAbnormalFlexion" layoutX="33.0" layoutY="160.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Flexão Anormal" textFill="WHITE" toggleGroup="$motorResponse" />
-      <RadioButton fx:id="motorResponseAbnormalExtension" layoutX="33.0" layoutY="187.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Extensão Anormal" textFill="WHITE" toggleGroup="$motorResponse" />
-      <RadioButton fx:id="motorResponseNone" layoutX="33.0" layoutY="217.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$motorResponse" />
+      <RadioButton fx:id="motorResponseLocatePain" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Localiza a Dor" textFill="WHITE" toggleGroup="$motorResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="motorResponseWithdrawal" layoutX="33.0" layoutY="132.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Movimentos de Retirada" textFill="WHITE" toggleGroup="$motorResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="motorResponseAnormalFlexion" layoutX="33.0" layoutY="165.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Flexão Anormal" textFill="WHITE" toggleGroup="$motorResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="motorResponseAnormalExtension" layoutX="33.0" layoutY="198.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Extensão Anormal" textFill="WHITE" toggleGroup="$motorResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="motorResponseNone" layoutX="33.0" layoutY="231.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$motorResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
    </children>
 </AnchorPane>
 
@@ -205,13 +253,22 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="eyeResponseBilateral" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Reação Bilateral" textFill="WHITE">
-         <toggleGroup>
-            <ToggleGroup fx:id="eyeResponse" />
-         </toggleGroup>
+      <RadioButton fx:id="pupilResponseBilateral" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" onAction="#setPupilResponse" prefHeight="17.0" prefWidth="175.0" text="Reação Bilateral" textFill="WHITE">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="pupilResponse" />
+                     </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
       </RadioButton>
-      <RadioButton fx:id="eyeResponseUnilateral" layoutX="33.0" layoutY="94.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Reação Unilateral" textFill="WHITE" toggleGroup="$eyeResponse" />
-      <RadioButton fx:id="eyeResponseNone" layoutX="33.0" layoutY="125.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$eyeResponse" />
+      <RadioButton fx:id="pupilResponseUnilateral" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" onAction="#setPupilResponse" prefHeight="17.0" prefWidth="175.0" text="Reação Unilateral" textFill="WHITE" toggleGroup="$pupilResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="pupilResponseNone" layoutX="33.0" layoutY="132.0" mnemonicParsing="false" onAction="#setPupilResponse" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$pupilResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
    </children>
 </AnchorPane>
 
@@ -237,7 +294,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <AnchorPane fx:id="apInfoGlasgow" disable="true" layoutX="79.0" layoutY="52.0" prefHeight="620.0" prefWidth="935.0" style="-fx-background-color: #B2B7C4; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3); -fx-background-radius: 20;" visible="false">
+            <AnchorPane fx:id="apInfoGlasgow" layoutX="79.0" layoutY="52.0" prefHeight="620.0" prefWidth="935.0" style="-fx-background-color: #B2B7C4; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3); -fx-background-radius: 20;" visible="false">
                <children>
                   <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -296,12 +353,12 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="218.0" layoutY="160.0" prefHeight="20.0" prefWidth="165.0" text="1  Nenhuma" textFill="WHITE">
+                        <Label layoutX="219.0" layoutY="190.0" prefHeight="20.0" prefWidth="165.0" text="1  Nenhuma" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="448.0" layoutY="30.0" text="Resposta Verbal" textFill="WHITE">
+                        <Label layoutX="432.0" layoutY="30.0" text="Resposta Motora" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -356,6 +413,11 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
+                        <Label layoutX="218.0" layoutY="160.0" prefHeight="20.0" prefWidth="184.0" text="2  Palavras Incompreensíveis" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                   <Label layoutX="90.0" layoutY="429.0" text="Resultados:">
@@ -399,6 +461,23 @@
                            </cursor>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apErrorPopUp" disable="true" layoutX="278.0" layoutY="259.0" prefHeight="206.0" prefWidth="544.0" style="-fx-background-color: #0A4164; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3); -fx-background-radius: 20;" visible="false">
+               <children>
+                  <Label layoutX="98.0" layoutY="53.0" text="Por favor Selecione Todos os Campos" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btClosePopUp" layoutX="150.0" layoutY="110.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="54.0" prefWidth="245.0" style="-fx-background-color: #6DA5D2; -fx-background-radius: 38px;" styleClass="closePopUpButton" text="OK">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

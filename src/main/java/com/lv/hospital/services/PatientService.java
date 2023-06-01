@@ -61,6 +61,7 @@ public class PatientService {
 
 
         if(existingGcs == null){
+            gcs.updateData();
             p.setGlasgowComaScale(gcs);
         }else{
             existingGcs.setEyeOpening(gcs.getEyeOpening());

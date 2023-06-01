@@ -48,6 +48,12 @@
     -fx-alignment: center;
 }
 
+.radio-button:hover > .radio > .dot {
+    -fx-background-color: #DB0519;
+    background-color: #DB0519;
+    -fx-alignment: center;
+}
+
 .saveButton {
     -fx-background-color: #6DA5D2;
     background-color: #6DA5D2;
