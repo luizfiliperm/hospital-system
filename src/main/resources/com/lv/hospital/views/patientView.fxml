@@ -237,6 +237,174 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+            <AnchorPane fx:id="apInfoGlasgow" disable="true" layoutX="79.0" layoutY="52.0" prefHeight="620.0" prefWidth="935.0" style="-fx-background-color: #B2B7C4; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3); -fx-background-radius: 20;" visible="false">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/logo/umbrella-logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="137.0" layoutY="28.0" text="Pontuação na escala de Glasgow">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="72.0" layoutY="117.0" prefHeight="305.0" prefWidth="804.0" style="-fx-background-color: #0A4164; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                     <children>
+                        <Label layoutX="70.0" layoutY="30.0" text="Abertura Ocular" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="70.0" text="4  Espontânea" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="100.0" prefHeight="20.0" prefWidth="87.0" text="3  À voz" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="130.0" prefHeight="20.0" prefWidth="87.0" text="4  À dor" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="160.0" prefHeight="20.0" prefWidth="87.0" text="1  Nenhuma" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="244.0" layoutY="30.0" text="Resposta Verbal" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="218.0" layoutY="70.0" prefHeight="20.0" prefWidth="165.0" text="5  Orientada" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="218.0" layoutY="100.0" prefHeight="20.0" prefWidth="165.0" text="4  Confusa" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="218.0" layoutY="130.0" prefHeight="20.0" prefWidth="165.0" text="3  Palavras Inapropriadas" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="218.0" layoutY="160.0" prefHeight="20.0" prefWidth="165.0" text="1  Nenhuma" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="448.0" layoutY="30.0" text="Resposta Verbal" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="70.0" prefHeight="20.0" prefWidth="165.0" text="6  Obedece a comandos" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="100.0" prefHeight="20.0" prefWidth="165.0" text="5  Localiza a dor" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="130.0" prefHeight="20.0" prefWidth="165.0" text="4  Movimentos de retirada" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="160.0" prefHeight="20.0" prefWidth="165.0" text="3  Flexão Anormal" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="190.0" prefHeight="20.0" prefWidth="165.0" text="2  Extensão Anormal" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="220.0" prefHeight="20.0" prefWidth="165.0" text="1  Nenhuma" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="626.0" layoutY="31.0" text="Resposta Pupilar" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="600.0" layoutY="71.0" prefHeight="20.0" prefWidth="165.0" text="-2  Reação Bilateral" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="600.0" layoutY="101.0" prefHeight="20.0" prefWidth="165.0" text="-1  Reação Unilateral" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="600.0" layoutY="131.0" prefHeight="20.0" prefWidth="165.0" text="0  Nenhuma" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="90.0" layoutY="429.0" text="Resultados:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="464.0" text="&lt;= 3  Coma Profundo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="494.0" text="&lt;= 4  Coma Severo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="524.0" text="&lt;= 7  Coma Moderado">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="88.0" layoutY="551.0" text="&lt;= 11 Coma Superficial">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="88.0" layoutY="578.0" text="&lt;= 12 Normal">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btCloseInfo" layoutX="873.0" layoutY="13.0" mnemonicParsing="false" onAction="#closeInfo" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/util/fi-bs-cross.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

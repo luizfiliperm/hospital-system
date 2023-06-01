@@ -12,8 +12,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
 
 public class PatientViewController implements Initializable{
+
+    @FXML
+    private AnchorPane apInfoGlasgow;
 
     @FXML
     private Button btBack;
@@ -23,6 +27,9 @@ public class PatientViewController implements Initializable{
 
     @FXML
     private Button btInfo;
+
+    @FXML
+    private Button btCloseInfo;
 
     @FXML
     private Button btSaveForm;
@@ -123,7 +130,14 @@ public class PatientViewController implements Initializable{
 
     @FXML
     void openInfo(ActionEvent event) {
+        apInfoGlasgow.setVisible(true);
+        apInfoGlasgow.setDisable(false);
+    }
 
+    @FXML
+    void closeInfo(ActionEvent event) {
+        apInfoGlasgow.setVisible(false);
+        apInfoGlasgow.setDisable(true);
     }
 
     @FXML
