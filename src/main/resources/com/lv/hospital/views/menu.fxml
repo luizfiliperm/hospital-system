@@ -16,6 +16,11 @@
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: B2B7C4;" VBox.vgrow="ALWAYS">
          <children>
+            <ImageView fitHeight="580.0" fitWidth="873.0" layoutX="441.0" layoutY="130.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/logo/logo.png" />
+               </image>
+            </ImageView>
             <AnchorPane layoutX="-30.0" prefHeight="711.0" prefWidth="261.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" styleClass="apPerfil" stylesheets="@style.css">
                <children>
                   <Label fx:id="lbDoctorName" layoutX="117.0" layoutY="20.0" text="Doctor Name" textFill="WHITE">
@@ -132,7 +137,7 @@
                      </font>
                   </Label>
                </children></AnchorPane>
-            <Label alignment="CENTER" layoutX="339.0" layoutY="35.0" prefHeight="70.0" prefWidth="596.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 8, 0, 6, 2);" text="Raccoon General Hospital">
+            <Label alignment="CENTER" layoutX="344.0" layoutY="40.0" prefHeight="70.0" prefWidth="596.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 8, 0, 6, 2);" text="Raccoon General Hospital">
                <font>
                   <Font size="36.0" />
                </font>
@@ -275,6 +280,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <ImageView fitHeight="92.0" fitWidth="80.0" layoutX="872.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/logo/logo-2.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
