@@ -1,6 +1,7 @@
 package com.lv.hospital.controllers;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -17,12 +18,13 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class MenuController implements Initializable{
+public class MenuController implements Initializable {
 
     @FXML
     private AnchorPane apDeletePatient;
@@ -90,8 +92,13 @@ public class MenuController implements Initializable{
     @FXML
     private TextField tfName;
 
+    @FXML
+    private TextField tfSearchPatient;
+
     public static Patient selectedPatient;
     private Boolean isEditing;
+
+    private List<Patient> patients;
 
     @FXML
     void closeApplication(ActionEvent event) {
@@ -119,7 +126,7 @@ public class MenuController implements Initializable{
     private void openPatientRegister() {
         apRegisterPacient.setVisible(true);
         apRegisterPacient.setDisable(false);
-        if(isEditing){
+        if (isEditing) {
             btRegisterPatient.setText("Salvar");
             lbRegisterTitle.setText("Editar paciente");
         }
@@ -139,9 +146,9 @@ public class MenuController implements Initializable{
             Integer age = Integer.parseInt(tfAge.getText());
             String cellphone = tfCellphone.getText();
 
-            if(isEditing){
+            if (isEditing) {
                 editPatient(name, age, cellphone);
-            }else{
+            } else {
                 createPatient(name, age, cellphone);
             }
             loadPatients();
@@ -162,13 +169,13 @@ public class MenuController implements Initializable{
         apDeletePatient.setDisable(true);
     }
 
-    private void createPatient(String name, Integer age, String cellphone){
+    private void createPatient(String name, Integer age, String cellphone) {
         Patient newPatient = new Patient(null, name, age, cellphone);
         App.ps.save(newPatient, App.loggedDoctor);
         lbInfo.setText("Paciente cadastrado com sucesso!");
     }
 
-    private void editPatient(String name, Integer age, String cellphone){
+    private void editPatient(String name, Integer age, String cellphone) {
         selectedPatient.setName(name);
         selectedPatient.setAge(age);
         selectedPatient.setPhone(cellphone);
@@ -185,11 +192,46 @@ public class MenuController implements Initializable{
         return true;
     }
 
+    @FXML
+    void searchPatient(KeyEvent event) {
+        String searchText = tfSearchPatient.getText().toLowerCase();
+        
+        List<Patient> filteredPatients = new ArrayList<>();
+
+        for (Patient patient : patients) {
+            if (patient.getName().toLowerCase().contains(searchText)) {
+                filteredPatients.add(patient);
+            }
+        }
+        populatePatients(filteredPatients);
+
+    }
+
+    private void loadPatients() {
+        patients = App.ps.findAllByDoctorId(App.loggedDoctor.getId());
+        populatePatients(patients);
+    }
+
+    private void populatePatients(List<Patient> patients) {
+        VBox vbPatients = new VBox();
+        vbPatients.setStyle("-fx-background-color: #0a4164;");
+
+        for (Patient patient : patients) {
+            AnchorPane apPatient = newPatientAnchorPane(patient);
+            vbPatients.getChildren().add(apPatient);
+        }
+
+        spListPatients.setContent(vbPatients);
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         lbDoctorName.setText("Dr. " + App.loggedDoctor.getName());
         lbCrm.setText("CRM: " + App.loggedDoctor.getCrm());
         lbEspeciality.setText(App.loggedDoctor.getEspeciality());
+
+        patients = App.ps.findAllByDoctorId(App.loggedDoctor.getId());
+        lbRegistredPatients.setText("" + patients.size());
 
         configureFields();
         loadPatients();
@@ -200,22 +242,7 @@ public class MenuController implements Initializable{
         FormatPatientFields.configureCellphone(tfCellphone);
     }
 
-    private void loadPatients(){
-
-        VBox vbPatients = new VBox();
-        vbPatients.setStyle("-fx-background-color: #0a4164;");
-
-        List<Patient> patients = App.ps.findAllByDoctorId(App.loggedDoctor.getId());
-        
-
-        for (Patient patient : patients) {
-            AnchorPane apPatient = newPatientAnchorPane(patient);
-            vbPatients.getChildren().add(apPatient);
-        }
-
-        spListPatients.setContent(vbPatients);
-        lbRegistredPatients.setText("" + patients.size());
-    }
+    
 
     public AnchorPane newPatientAnchorPane(Patient patient) {
         AnchorPane apPatient = new AnchorPane();
@@ -223,7 +250,6 @@ public class MenuController implements Initializable{
 
         Label lbInfo = new Label(patient.getMrn() + " - " + patient.getName());
         configureInfoLabel(lbInfo, patient);
-
 
         Button btnEdit = new Button();
         configureEditButton(btnEdit, patient);
@@ -234,7 +260,7 @@ public class MenuController implements Initializable{
         apPatient.getChildren().addAll(lbInfo, btnEdit, btnDelete);
 
         return apPatient;
-        
+
     }
 
     private void configureAnchorPane(AnchorPane apPatient) {
@@ -265,10 +291,10 @@ public class MenuController implements Initializable{
         });
     }
 
-
     private void configureEditButton(Button btnEdit, Patient patient) {
         btnEdit.setStyle("-fx-background-color: none;");
-        ImageView editIcon = new ImageView(new Image(getClass().getResourceAsStream("/com/lv/hospital/icons/menu/fi-br-pencil.png")));
+        ImageView editIcon = new ImageView(
+                new Image(getClass().getResourceAsStream("/com/lv/hospital/icons/menu/fi-br-pencil.png")));
         editIcon.setFitHeight(15);
         editIcon.setFitWidth(15);
         btnEdit.setGraphic(editIcon);
@@ -279,7 +305,7 @@ public class MenuController implements Initializable{
         btnEdit.setOnAction(event -> {
             selectedPatient = patient;
             tfName.setText(selectedPatient.getName());
-            tfAge.setText(selectedPatient.getAge().toString()); 
+            tfAge.setText(selectedPatient.getAge().toString());
             tfCellphone.setText(selectedPatient.getPhone());
             isEditing = true;
             openPatientRegister();
@@ -289,7 +315,8 @@ public class MenuController implements Initializable{
 
     private void configureDeleteButton(Button btnDelete, Patient patient) {
         btnDelete.setStyle("-fx-background-color: none;");
-        ImageView deleteIcon = new ImageView(new Image(getClass().getResourceAsStream("/com/lv/hospital/icons/menu/fi-br-trash.png")));
+        ImageView deleteIcon = new ImageView(
+                new Image(getClass().getResourceAsStream("/com/lv/hospital/icons/menu/fi-br-trash.png")));
         deleteIcon.setFitHeight(15);
         deleteIcon.setFitWidth(15);
         btnDelete.setGraphic(deleteIcon);
@@ -308,6 +335,5 @@ public class MenuController implements Initializable{
             lbMrn.setText(selectedPatient.getMrn());
         });
     }
-
 
 }

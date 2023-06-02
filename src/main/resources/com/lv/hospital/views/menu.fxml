@@ -16,6 +16,11 @@
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: B2B7C4;" VBox.vgrow="ALWAYS">
          <children>
+            <ImageView fitHeight="92.0" fitWidth="80.0" layoutX="872.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/logo/logo-2.png" />
+               </image>
+            </ImageView>
             <ImageView fitHeight="580.0" fitWidth="873.0" layoutX="441.0" layoutY="130.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/logo/logo.png" />
@@ -112,7 +117,7 @@
                      </cursor>
                   </Button>
                   <ScrollPane fx:id="spListPatients" layoutX="23.0" layoutY="50.0" prefHeight="269.0" prefWidth="644.0" style="-fx-background-color: none;" styleClass="spListPatients" stylesheets="@style.css" />
-                  <TextField layoutX="279.0" layoutY="17.0" prefHeight="25.0" prefWidth="417.0" promptText="Pesquisar paciente" style="-fx-background-radius: 50;" />
+                  <TextField fx:id="tfSearchPatient" layoutX="279.0" layoutY="17.0" onKeyTyped="#searchPatient" prefHeight="25.0" prefWidth="417.0" promptText="Pesquisar paciente" style="-fx-background-radius: 50;" />
                   <Button layoutX="656.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: none;">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
@@ -280,11 +285,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ImageView fitHeight="92.0" fitWidth="80.0" layoutX="872.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/logo/logo-2.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </children>

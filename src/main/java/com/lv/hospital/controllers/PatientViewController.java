@@ -255,7 +255,7 @@ public class PatientViewController implements Initializable {
             lbTestPontuation.setText(gcs.getTotal().toString());
             lbTestResult.setText(gcs.getResult());
         }else{
-            lbTestPontuation.setText("0");
+            lbTestPontuation.setText("-");
             lbTestResult.setText("Não realizado");
         }
     }

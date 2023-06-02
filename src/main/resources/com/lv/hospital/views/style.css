@@ -67,6 +67,12 @@
     -fx-text-fill: white;
 }
 
+.closePopUpButton:hover {
+    -fx-background-color: #DB0519 !important;
+    background-color: #DB0519;
+    -fx-text-fill: white;
+}
+
 /* patient view */
 
 /* menu */
