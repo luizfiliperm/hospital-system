@@ -112,7 +112,7 @@
                      </cursor>
                   </Button>
                   <ScrollPane fx:id="spListPatients" layoutX="23.0" layoutY="50.0" prefHeight="269.0" prefWidth="644.0" style="-fx-background-color: none;" styleClass="spListPatients" stylesheets="@style.css" />
-                  <TextField layoutX="279.0" layoutY="17.0" prefHeight="25.0" prefWidth="417.0" promptText="Pesquisar paciente" style="-fx-background-radius: 50;" />
+                  <TextField fx:id="tfSearchPatient" layoutX="279.0" layoutY="17.0" onKeyTyped="#searchPatient" prefHeight="25.0" prefWidth="417.0" promptText="Pesquisar paciente" style="-fx-background-radius: 50;" />
                   <Button layoutX="656.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: none;">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
