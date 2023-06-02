@@ -48,6 +48,11 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" style="-fx-background-color: B2B7C4;" VBox.vgrow="ALWAYS">
          <children>
+            <ImageView fitHeight="642.0" fitWidth="678.0" layoutX="-230.0" layoutY="26.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/logo/logo-2.png" />
+               </image>
+            </ImageView>
             <Button fx:id="btClose" layoutX="1052.0" layoutY="8.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">

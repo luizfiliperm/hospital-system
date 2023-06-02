@@ -118,6 +118,11 @@
                   </ImageView>
                </graphic>
             </Button>
+            <ImageView fitHeight="642.0" fitWidth="678.0" layoutX="-230.0" layoutY="26.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/logo/logo-2.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
