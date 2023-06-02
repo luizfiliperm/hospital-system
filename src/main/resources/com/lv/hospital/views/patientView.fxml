@@ -474,7 +474,7 @@
                         <Font size="21.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btClosePopUp" layoutX="150.0" layoutY="110.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="54.0" prefWidth="245.0" style="-fx-background-color: #6DA5D2; -fx-background-radius: 38px;" styleClass="closePopUpButton" text="OK">
+                  <Button fx:id="btClosePopUp" layoutX="150.0" layoutY="110.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="54.0" prefWidth="245.0" style="-fx-background-color: #6DA5D2; -fx-background-radius: 38px;" styleClass="closePopUpButton" stylesheets="@style.css" text="OK">
                      <font>
                         <Font size="15.0" />
                      </font>
