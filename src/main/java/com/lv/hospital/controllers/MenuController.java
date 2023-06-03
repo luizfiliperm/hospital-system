@@ -95,6 +95,19 @@ public class MenuController implements Initializable {
     @FXML
     private TextField tfSearchPatient;
 
+    @FXML
+    private AnchorPane anConfirmLogoutPane;
+
+    @FXML
+    private Button btLogout;
+
+    @FXML
+    private Button btConfirmLogout;
+
+    @FXML
+    private Button btCancelLogout;
+
+
     public static Patient selectedPatient;
     private Boolean isEditing;
 
@@ -334,6 +347,27 @@ public class MenuController implements Initializable {
             lbCellPhone.setText(selectedPatient.getPhone());
             lbMrn.setText(selectedPatient.getMrn());
         });
+    }
+
+
+    @FXML
+    void logout(ActionEvent event) {
+        anConfirmLogoutPane.setVisible(true);
+        anConfirmLogoutPane.setDisable(false);
+    }
+
+    
+    @FXML
+    void cancelLogout(ActionEvent event) {
+        anConfirmLogoutPane.setVisible(false);
+        anConfirmLogoutPane.setDisable(true);
+    }
+
+    
+    @FXML
+    void confirmLogout(ActionEvent event) {
+        App.setRoot("views/login");
+        App.loggedDoctor = null;
     }
 
 }
