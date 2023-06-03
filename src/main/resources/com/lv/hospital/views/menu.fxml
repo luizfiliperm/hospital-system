@@ -40,14 +40,17 @@
                   </ImageView>
                   <Label fx:id="lbEspeciality" layoutX="118.0" layoutY="45.0" prefWidth="107.0" text="Especialidade" textFill="WHITE" />
                   <Label fx:id="lbCrm" layoutX="118.0" layoutY="62.0" prefHeight="17.0" prefWidth="107.0" text="CRM" textFill="WHITE" />
-                  <Button layoutX="39.0" layoutY="665.0" mnemonicParsing="false" style="-fx-background-color: none;">
+                  <Button fx:id="btLogout" layoutX="39.0" layoutY="665.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: none;">
                      <graphic>
-                        <ImageView fx:id="btLogout" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../icons/menu/fi-br-sign-in.png" />
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button layoutX="204.0" layoutY="665.0" mnemonicParsing="false" style="-fx-background-color: none;">
                      <graphic>
@@ -68,14 +71,14 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="45.0" layoutY="534.0" prefHeight="118.0" prefWidth="200.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 8, 0, 6, 2); -fx-background-color: #6da5d2; -fx-background-radius: 30;" visible="false">
+                  <AnchorPane fx:id="anConfirmLogoutPane" disable="true" layoutX="45.0" layoutY="534.0" prefHeight="118.0" prefWidth="200.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 8, 0, 6, 2); -fx-background-color: #6da5d2; -fx-background-radius: 30;" visible="false">
                      <children>
                         <Label layoutX="36.0" layoutY="27.0" text="Deseja mesmo sair?">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Button layoutX="28.0" layoutY="65.0" mnemonicParsing="false" style="-fx-background-color: none;" text="Sim">
+                        <Button fx:id="btConfirmLogout" layoutX="28.0" layoutY="65.0" mnemonicParsing="false" onAction="#confirmLogout" style="-fx-background-color: none;" text="Sim">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -83,8 +86,11 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Button layoutX="106.0" layoutY="65.0" mnemonicParsing="false" style="-fx-background-color: none;" text="Não">
+                        <Button fx:id="btCancelLogout" layoutX="106.0" layoutY="65.0" mnemonicParsing="false" onAction="#cancelLogout" style="-fx-background-color: none;" text="Não">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -92,6 +98,9 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                   </AnchorPane>

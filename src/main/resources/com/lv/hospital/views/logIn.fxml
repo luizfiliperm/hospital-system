@@ -68,7 +68,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="72.0" layoutY="62.0" prefHeight="225.0" prefWidth="442.0" text="Raccoon General Hospital" textAlignment="CENTER">
+            <Label layoutX="72.0" layoutY="62.0" prefHeight="225.0" prefWidth="442.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 2, 3);" text="Raccoon General Hospital" textAlignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>
