@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import com.lv.hospital.App;
 import com.lv.hospital.controllers.util.FormatPatientFields;
+import com.lv.hospital.controllers.util.LoadFonts;
 import com.lv.hospital.entities.Patient;
 
 import javafx.event.ActionEvent;
@@ -22,9 +23,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
 public class MenuController implements Initializable {
+
+    @FXML
+    private AnchorPane anConfirmLogoutPane;
 
     @FXML
     private AnchorPane apDeletePatient;
@@ -39,22 +42,40 @@ public class MenuController implements Initializable {
     private Button btCancel;
 
     @FXML
+    private Button btCancelLogout;
+
+    @FXML
     private Button btClose;
 
     @FXML
     private Button btClosePatientRegister;
 
     @FXML
+    private Button btConfirmLogout;
+
+    @FXML
     private Button btDelete;
+
+    @FXML
+    private Button btLogout;
 
     @FXML
     private Button btRegisterPatient;
 
     @FXML
+    private ImageView idEditPerfil;
+
+    @FXML
     private Label lbAge;
 
     @FXML
+    private Label lbAgendaDay;
+
+    @FXML
     private Label lbCellPhone;
+
+    @FXML
+    private Label lbConfirmDeleteMessage;
 
     @FXML
     private Label lbCrm;
@@ -66,6 +87,9 @@ public class MenuController implements Initializable {
     private Label lbEspeciality;
 
     @FXML
+    private Label lbHospitalTittle;
+
+    @FXML
     private Label lbInfo;
 
     @FXML
@@ -75,10 +99,16 @@ public class MenuController implements Initializable {
     private Label lbName;
 
     @FXML
+    private Label lbPatientListTittle;
+
+    @FXML
     private Label lbRegisterTitle;
 
     @FXML
     private Label lbRegistredPatients;
+
+    @FXML
+    private Label lbRegistredPatientsTittle;
 
     @FXML
     private ScrollPane spListPatients;
@@ -94,18 +124,6 @@ public class MenuController implements Initializable {
 
     @FXML
     private TextField tfSearchPatient;
-
-    @FXML
-    private AnchorPane anConfirmLogoutPane;
-
-    @FXML
-    private Button btLogout;
-
-    @FXML
-    private Button btConfirmLogout;
-
-    @FXML
-    private Button btCancelLogout;
 
 
     public static Patient selectedPatient;
@@ -237,26 +255,6 @@ public class MenuController implements Initializable {
         spListPatients.setContent(vbPatients);
     }
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        lbDoctorName.setText("Dr. " + App.loggedDoctor.getName());
-        lbCrm.setText("CRM: " + App.loggedDoctor.getCrm());
-        lbEspeciality.setText(App.loggedDoctor.getEspeciality());
-
-        patients = App.ps.findAllByDoctorId(App.loggedDoctor.getId());
-        lbRegistredPatients.setText("" + patients.size());
-
-        configureFields();
-        loadPatients();
-    }
-
-    private void configureFields() {
-        FormatPatientFields.configureAge(tfAge);
-        FormatPatientFields.configureCellphone(tfCellphone);
-    }
-
-    
-
     public AnchorPane newPatientAnchorPane(Patient patient) {
         AnchorPane apPatient = new AnchorPane();
         configureAnchorPane(apPatient);
@@ -276,6 +274,56 @@ public class MenuController implements Initializable {
 
     }
 
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        lbDoctorName.setText("Dr. " + App.loggedDoctor.getName());
+        lbCrm.setText("CRM: " + App.loggedDoctor.getCrm());
+        lbEspeciality.setText(App.loggedDoctor.getEspeciality());
+
+        patients = App.ps.findAllByDoctorId(App.loggedDoctor.getId());
+        lbRegistredPatients.setText("" + patients.size());
+
+        setFonts();
+        configureFields();
+        loadPatients();
+    }
+
+    public void setFonts(){
+        lbHospitalTittle.setFont(LoadFonts.tittleFont(40.0));
+        lbDoctorName.setFont(LoadFonts.commonFont(18.0));
+        lbEspeciality.setFont(LoadFonts.commonFont(18.0));
+        lbCrm.setFont(LoadFonts.commonFont(12.0));
+        lbAgendaDay.setFont(LoadFonts.commonFont(18.0));
+
+        lbRegistredPatients.setFont(LoadFonts.commonFont(80.0));
+        lbRegistredPatientsTittle.setFont(LoadFonts.commonFont(36.0));
+
+        lbPatientListTittle.setFont(LoadFonts.commonFont(20.0));
+        tfSearchPatient.setFont(LoadFonts.commonFont(14.0));
+
+        lbRegisterTitle.setFont(LoadFonts.commonFont(36.0));
+        tfName.setFont(LoadFonts.commonFont(14.0));
+        tfAge.setFont(LoadFonts.commonFont(14.0));
+        tfCellphone.setFont(LoadFonts.commonFont(14.0));
+        lbInfo.setFont(LoadFonts.commonFont(16.0));
+        btRegisterPatient.setFont(LoadFonts.commonFont(20.0));
+
+
+        lbName.setFont(LoadFonts.commonFont(20.0));
+        lbCellPhone.setFont(LoadFonts.commonFont(16.0));
+        lbMrn.setFont(LoadFonts.commonFont(16.0));
+        lbAge.setFont(LoadFonts.commonFont(16.0));
+        lbConfirmDeleteMessage.setFont(LoadFonts.commonFont(17.0));
+        btDelete.setFont(LoadFonts.commonFont(18.0));
+        btCancel.setFont(LoadFonts.commonFont(18.0));
+    }
+
+    private void configureFields() {
+        FormatPatientFields.configureAge(tfAge);
+        FormatPatientFields.configureCellphone(tfCellphone);
+    }
+
+    
     private void configureAnchorPane(AnchorPane apPatient) {
         apPatient.setStyle("-fx-background-color: #0a4164;");
         apPatient.setPrefWidth(625);
@@ -283,7 +331,7 @@ public class MenuController implements Initializable {
     }
 
     private void configureInfoLabel(Label lbInfo, Patient patient) {
-        lbInfo.setFont(new Font(16));
+        lbInfo.setFont(LoadFonts.commonFont(16.0));
         lbInfo.setTextFill(Color.WHITE);
         lbInfo.setLayoutX(14);
         lbInfo.setLayoutY(2);
@@ -297,7 +345,6 @@ public class MenuController implements Initializable {
             lbInfo.setUnderline(false);
         });
 
-        // Mudar para a tela de consulta
         lbInfo.setOnMouseClicked(event -> {
             selectedPatient = patient;
             App.setRoot("views/patientView");
@@ -343,9 +390,9 @@ public class MenuController implements Initializable {
             apDeletePatient.setDisable(false);
 
             lbName.setText(selectedPatient.getName());
-            lbAge.setText(selectedPatient.getAge().toString());
             lbCellPhone.setText(selectedPatient.getPhone());
-            lbMrn.setText(selectedPatient.getMrn());
+            lbMrn.setText("Mrn: " + selectedPatient.getMrn());
+            lbAge.setText("Idade: " + selectedPatient.getAge());
         });
     }
 

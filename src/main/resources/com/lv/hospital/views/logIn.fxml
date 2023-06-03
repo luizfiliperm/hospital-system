@@ -68,7 +68,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="72.0" layoutY="62.0" prefHeight="225.0" prefWidth="442.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 2, 3);" text="Raccoon General Hospital" textAlignment="CENTER">
+            <Label fx:id="lbHospitalTittle" alignment="CENTER" layoutX="6.0" layoutY="62.0" prefHeight="225.0" prefWidth="565.0" styleClass="tittleHospital" stylesheets="@style.css" text="Raccoon General Hospital" textAlignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>
@@ -83,7 +83,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btSignin" layoutX="206.0" layoutY="563.0" mnemonicParsing="false" onAction="#signIn" style="-fx-background-color: none;" styleClass="registerButton" stylesheets="@style.css" text="Cadastre-se" textFill="#b2b7c4">
+                  <Button fx:id="btSignin" layoutX="157.0" layoutY="563.0" mnemonicParsing="false" onAction="#signIn" prefHeight="27.0" prefWidth="185.0" style="-fx-background-color: none;" styleClass="registerButton" stylesheets="@style.css" text="Cadastre-se" textFill="#b2b7c4">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -91,12 +91,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label layoutX="203.0" layoutY="110.0" text="Login" textFill="WHITE">
+                  <Label fx:id="lbLogin" alignment="CENTER" layoutX="88.0" layoutY="110.0" prefHeight="53.0" prefWidth="317.0" text="Login" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tfLogin" layoutX="90.0" layoutY="297.0" prefHeight="33.0" prefWidth="317.0" promptText="CRM ou Email" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" AnchorPane.leftAnchor="90.0">
+                  <TextField fx:id="tfLogin" layoutX="90.0" layoutY="297.0" prefHeight="33.0" prefWidth="317.0" promptText="CRM or Email" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" AnchorPane.leftAnchor="90.0">
                      <padding>
                         <Insets left="35.0" />
                      </padding></TextField>
