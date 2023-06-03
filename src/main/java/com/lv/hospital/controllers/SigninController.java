@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.lv.hospital.App;
+import com.lv.hospital.controllers.util.LoadFonts;
 import com.lv.hospital.entities.Doctor;
 import com.lv.hospital.entities.enums.BrazilianState;
 
@@ -20,16 +21,22 @@ import javafx.util.StringConverter;
 public class SigninController implements Initializable{
 
     @FXML
-    private Button btClose;
+    private Button btBack;
 
     @FXML
-    private Button btBack;
+    private Button btClose;
 
     @FXML
     private Button btSignIn;
 
     @FXML
+    private Label lbHospitalTittle;
+
+    @FXML
     private Label lbInfo;
+
+    @FXML
+    private Label lbSignIn;
 
     @FXML
     private PasswordField tfConfirmPassword;
@@ -127,6 +134,8 @@ public class SigninController implements Initializable{
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        setFonts();
+
         cbState.getItems().addAll(BrazilianState.values());
 
         cbState.setConverter(new StringConverter<BrazilianState>() {
@@ -142,5 +151,16 @@ public class SigninController implements Initializable{
         });
     }
 
+
+    public void setFonts(){
+        lbHospitalTittle.setFont(LoadFonts.tittleFont(50.0));
+        lbSignIn.setFont(LoadFonts.commonFont(36.0));
+        lbInfo.setFont(LoadFonts.commonFont(14.0));
+        btSignIn.setFont(LoadFonts.commonFont(14.0));
+        tfName.setFont(LoadFonts.commonFont(12.0));
+        tfEmail.setFont(LoadFonts.commonFont(12.0));
+        tfPassword.setFont(LoadFonts.commonFont(12.0));
+        tfConfirmPassword.setFont(LoadFonts.commonFont(12.0));
+    }
 
 }

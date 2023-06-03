@@ -22,7 +22,7 @@
                   <Image url="@../icons/logo/logo-2.png" />
                </image>
             </ImageView>
-            <Button fx:id="btClose" layoutX="1052.0" layoutY="8.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+            <Button fx:id="btClose" layoutX="1052.0" layoutY="8.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: none;">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -37,7 +37,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="72.0" layoutY="62.0" prefHeight="225.0" prefWidth="442.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 2, 3);" text="Raccoon General Hospital" textAlignment="CENTER">
+            <Label fx:id="lbHospitalTittle" alignment="CENTER" layoutX="6.0" layoutY="62.0" prefHeight="225.0" prefWidth="565.0" text="Raccoon General Hospital" textAlignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>
@@ -52,7 +52,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label layoutX="155.0" layoutY="49.0" text="Cadastre-se" textFill="WHITE">
+                  <Label fx:id="lbSignIn" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="46.0" prefHeight="53.0" prefWidth="373.0" text="Cadastre-se" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -122,6 +122,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>

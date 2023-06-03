@@ -28,7 +28,7 @@
             </ImageView>
             <AnchorPane layoutX="-30.0" prefHeight="711.0" prefWidth="261.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" styleClass="apPerfil" stylesheets="@style.css">
                <children>
-                  <Label fx:id="lbDoctorName" layoutX="117.0" layoutY="20.0" text="Doctor Name" textFill="WHITE">
+                  <Label fx:id="lbDoctorName" layoutX="117.0" layoutY="20.0" prefHeight="27.0" prefWidth="131.0" text="Doctor Name" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -38,8 +38,8 @@
                         <Image url="@../icons/menu/fi-br-portrait.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="lbEspeciality" layoutX="118.0" layoutY="45.0" prefWidth="107.0" text="Especialidade" textFill="WHITE" />
-                  <Label fx:id="lbCrm" layoutX="118.0" layoutY="62.0" prefHeight="17.0" prefWidth="107.0" text="CRM" textFill="WHITE" />
+                  <Label fx:id="lbEspeciality" layoutX="118.0" layoutY="45.0" prefHeight="17.0" prefWidth="131.0" text="Especialidade" textFill="WHITE" />
+                  <Label fx:id="lbCrm" layoutX="118.0" layoutY="62.0" prefHeight="17.0" prefWidth="131.0" text="CRM" textFill="WHITE" />
                   <Button fx:id="btLogout" layoutX="39.0" layoutY="665.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: none;">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
@@ -66,7 +66,7 @@
                         <Image url="@../icons/menu/calendar.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="79.0" layoutY="140.0" text="Agenda do dia" textFill="#f5f5f5">
+                  <Label fx:id="lbAgendaDay" alignment="CENTER" layoutX="45.0" layoutY="140.0" prefHeight="27.0" prefWidth="190.0" text="Agenda do dia" textFill="#f5f5f5">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -108,7 +108,7 @@
             </AnchorPane>
             <AnchorPane layoutX="316.0" layoutY="309.0" prefHeight="350.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" styleClass="apLista" stylesheets="@style.css">
                <children>
-                  <Label layoutX="23.0" layoutY="14.0" text="Lista de Pacientes" textFill="WHITE">
+                  <Label fx:id="lbPatientListTittle" layoutX="23.0" layoutY="14.0" prefHeight="30.0" prefWidth="240.0" text="Lista de Pacientes" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -126,7 +126,10 @@
                      </cursor>
                   </Button>
                   <ScrollPane fx:id="spListPatients" layoutX="23.0" layoutY="50.0" prefHeight="269.0" prefWidth="644.0" style="-fx-background-color: none;" styleClass="spListPatients" stylesheets="@style.css" />
-                  <TextField fx:id="tfSearchPatient" layoutX="279.0" layoutY="17.0" onKeyTyped="#searchPatient" prefHeight="25.0" prefWidth="417.0" promptText="Pesquisar paciente" style="-fx-background-radius: 50;" />
+                  <TextField fx:id="tfSearchPatient" layoutX="279.0" layoutY="9.0" onKeyTyped="#searchPatient" prefHeight="40.0" prefWidth="417.0" promptText="Pesquisar paciente" style="-fx-background-radius: 50;">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
                   <Button layoutX="656.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: none;">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
@@ -140,18 +143,18 @@
             </AnchorPane>
             <AnchorPane layoutX="316.0" layoutY="142.0" prefHeight="135.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" styleClass="apCont" stylesheets="@style.css">
                <children>
-                  <Label fx:id="lbRegistredPatients" layoutX="32.0" layoutY="9.0" prefHeight="118.0" prefWidth="144.0" text="000" textFill="WHITE">
+                  <Label fx:id="lbRegistredPatients" layoutX="32.0" layoutY="9.0" prefHeight="118.0" prefWidth="174.0" text="000" textFill="WHITE">
                      <font>
                         <Font size="80.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="176.0" layoutY="41.0" prefHeight="17.0" prefWidth="447.0" text="Pacientes Cadastrados" textFill="WHITE">
+                  <Label fx:id="lbRegistredPatientsTittle" alignment="CENTER" layoutX="176.0" layoutY="41.0" prefHeight="17.0" prefWidth="447.0" text="Pacientes Cadastrados" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
                </children></AnchorPane>
-            <Label alignment="CENTER" layoutX="344.0" layoutY="40.0" prefHeight="70.0" prefWidth="596.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 8, 0, 6, 2);" text="Raccoon General Hospital">
+            <Label fx:id="lbHospitalTittle" alignment="CENTER" layoutX="344.0" layoutY="40.0" prefHeight="70.0" prefWidth="596.0" text="Raccoon General Hospital">
                <font>
                   <Font size="36.0" />
                </font>
@@ -166,7 +169,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label fx:id="lbName" layoutX="88.0" layoutY="24.0" prefHeight="32.0" prefWidth="325.0" text="NOME COMPLETO DO PACIENTE" textFill="WHITE">
+                  <Label fx:id="lbName" layoutX="88.0" layoutY="24.0" prefHeight="32.0" prefWidth="338.0" text="NOME COMPLETO DO PACIENTE" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -176,27 +179,17 @@
                         <Image url="@../icons/patient/fi-br-sad.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="lbCellPhone" layoutX="93.0" layoutY="54.0" text="(99) 9 9999-9999" textFill="WHITE">
+                  <Label fx:id="lbCellPhone" layoutX="88.0" layoutY="54.0" prefHeight="25.0" prefWidth="95.0" text="Numero" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="219.0" layoutY="54.0" text="Mrn:" textFill="WHITE">
+                  <Label fx:id="lbMrn" layoutX="185.0" layoutY="54.0" prefHeight="25.0" prefWidth="70.0" text="Mrn" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbMrn" layoutX="256.0" layoutY="54.0" prefHeight="25.0" prefWidth="58.0" text="000001" textFill="WHITE">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="317.0" layoutY="54.0" text="Idade:" textFill="WHITE">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lbAge" layoutX="368.0" layoutY="54.0" text="71" textFill="WHITE">
+                  <Label fx:id="lbAge" layoutX="257.0" layoutY="54.0" prefHeight="25.0" prefWidth="95.0" text="Idade: 71" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -209,7 +202,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label alignment="CENTER" layoutX="50.0" layoutY="117.0" prefHeight="26.0" prefWidth="370.0" text="Tem Certeza que deseja apagar este Paciente?" textFill="WHITE">
+                  <Label fx:id="lbConfirmDeleteMessage" alignment="CENTER" layoutX="33.0" layoutY="130.0" prefHeight="26.0" prefWidth="381.0" text="Tem Certeza que deseja apagar este Paciente?" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>

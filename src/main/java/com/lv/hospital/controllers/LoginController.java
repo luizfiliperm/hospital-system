@@ -1,18 +1,23 @@
 package com.lv.hospital.controllers;
 
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.lv.hospital.App;
+import com.lv.hospital.controllers.util.LoadFonts;
 import com.lv.hospital.entities.Doctor;
 import com.lv.hospital.util.PasswordUtils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class LoginController{
+public class LoginController implements Initializable{
 
     @FXML
     private Button btLogin;
@@ -21,10 +26,16 @@ public class LoginController{
     private Button btSignin;
 
     @FXML
+    private Label lbHospitalTittle;
+
+    @FXML
     private Button btClose;
 
     @FXML
     private Label lbInfo;
+
+    @FXML
+    private Label lbLogin;
 
     @FXML
     private TextField tfLogin;
@@ -86,5 +97,20 @@ public class LoginController{
         App.setRoot("views/signIn");
     }
 
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        setFonts();
+    }
+
+    public void setFonts(){
+        lbHospitalTittle.setFont(LoadFonts.tittleFont(50.0));
+        btLogin.setFont(LoadFonts.commonFont(18.0));
+        btSignin.setFont(LoadFonts.commonFont(13.0));
+        lbLogin.setFont(LoadFonts.commonFont(36.0));
+        lbInfo.setFont(LoadFonts.commonFont(14.0));
+
+        tfLogin.setFont(LoadFonts.commonFont(18.0));
+        tfPassword.setFont(LoadFonts.commonFont(18.0));
+    }
 
 }
