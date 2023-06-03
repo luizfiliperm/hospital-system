@@ -17,6 +17,11 @@
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" style="-fx-background-color: B2B7C4;" VBox.vgrow="ALWAYS">
          <children>
+            <ImageView fitHeight="642.0" fitWidth="678.0" layoutX="-230.0" layoutY="26.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/logo/logo-2.png" />
+               </image>
+            </ImageView>
             <Button fx:id="btClose" layoutX="1052.0" layoutY="8.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
@@ -32,7 +37,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="72.0" layoutY="62.0" prefHeight="225.0" prefWidth="442.0" text="Raccoon General Hospital" textAlignment="CENTER">
+            <Label layoutX="72.0" layoutY="62.0" prefHeight="225.0" prefWidth="442.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 2, 3);" text="Raccoon General Hospital" textAlignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>
@@ -118,11 +123,6 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ImageView fitHeight="642.0" fitWidth="678.0" layoutX="-230.0" layoutY="26.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/logo/logo-2.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </children>
