@@ -220,7 +220,7 @@ public class MenuController implements Initializable {
         if (tfName.getText().equals("") || tfAge.getText().equals("") || tfCellphone.getText().equals("")) {
             lbInfo.setText("Preencha todos os campos!");
             return false;
-        }else if(App.ps.patientExists(tfName.getText())){
+        }else if(App.ps.patientExists(tfName.getText()) && isEditing == false){
             lbInfo.setText("Este paciente já está cadastrado!");
             return false;
         }
