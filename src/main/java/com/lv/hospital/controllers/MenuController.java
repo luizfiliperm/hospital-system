@@ -23,6 +23,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class MenuController implements Initializable {
 
@@ -203,6 +204,7 @@ public class MenuController implements Initializable {
     private void createPatient(String name, Integer age, String cellphone) {
         Patient newPatient = new Patient(null, name, age, cellphone);
         App.ps.save(newPatient, App.loggedDoctor);
+
         lbInfo.setText("Paciente cadastrado com sucesso!");
     }
 
@@ -217,6 +219,9 @@ public class MenuController implements Initializable {
     public boolean validateFields() {
         if (tfName.getText().equals("") || tfAge.getText().equals("") || tfCellphone.getText().equals("")) {
             lbInfo.setText("Preencha todos os campos!");
+            return false;
+        }else if(App.ps.patientExists(tfName.getText())){
+            lbInfo.setText("Este paciente já está cadastrado!");
             return false;
         }
 
@@ -241,6 +246,7 @@ public class MenuController implements Initializable {
     private void loadPatients() {
         patients = App.ps.findAllByDoctorId(App.loggedDoctor.getId());
         populatePatients(patients);
+        lbRegistredPatients.setText("" + patients.size());
     }
 
     private void populatePatients(List<Patient> patients) {
@@ -281,7 +287,6 @@ public class MenuController implements Initializable {
         lbEspeciality.setText(App.loggedDoctor.getEspeciality());
 
         patients = App.ps.findAllByDoctorId(App.loggedDoctor.getId());
-        lbRegistredPatients.setText("" + patients.size());
 
         setFonts();
         configureFields();
@@ -306,6 +311,7 @@ public class MenuController implements Initializable {
     }
 
     private void configureInfoLabel(Label lbInfo, Patient patient) {
+        lbInfo.setFont(new Font(16));
         lbInfo.setTextFill(Color.WHITE);
         lbInfo.setLayoutX(14);
         lbInfo.setLayoutY(2);
@@ -367,6 +373,7 @@ public class MenuController implements Initializable {
             lbCellPhone.setText(selectedPatient.getPhone());
             lbMrn.setText("Mrn: " + selectedPatient.getMrn());
             lbAge.setText("Idade: " + selectedPatient.getAge());
+            
         });
     }
 

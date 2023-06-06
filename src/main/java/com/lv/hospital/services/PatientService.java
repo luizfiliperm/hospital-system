@@ -74,6 +74,12 @@ public class PatientService {
         em.getTransaction().commit();
     }
 
+    public Boolean patientExists(String name){
+        return em.createQuery("SELECT p FROM Patient p WHERE p.name = :name", Patient.class)
+            .setParameter("name", name)
+            .getResultList().size() > 0;
+    }
+
     public List<Patient> findAllByDoctorId(Long doctorId) {
         return em.createQuery("SELECT p FROM Patient p WHERE p.doctor.id = :doctorId", Patient.class)
             .setParameter("doctorId", doctorId)

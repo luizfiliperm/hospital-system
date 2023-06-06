@@ -128,7 +128,14 @@
 .registerPatientButton:hover {
     -fx-background-color: #DB0519 !important;
     background-color: #DB0519 !important;
+    -fx-text-fill: white !important;
+}
+
+.registerPatientButton {
+    -fx-background-color:  #0A4164;
+    background-color:  #0A4164;
     -fx-text-fill: white;
+    -fx-background-radius: 50px;
 }
 
 .patientCancelDeleteButton:hover {

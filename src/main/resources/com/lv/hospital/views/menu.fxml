@@ -139,9 +139,9 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label layoutX="41.0" layoutY="47.0" prefHeight="17.0" prefWidth="120.0" text="MRN    - Paciente" textFill="WHITE">
+                  <Label layoutX="36.0" layoutY="42.0" prefHeight="25.0" prefWidth="163.0" text="  MRN   -     Paciente" textFill="WHITE">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
