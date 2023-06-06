@@ -22,7 +22,6 @@ O Projeto Hospital é um sistema desenvolvido em JavaFX, utilizando JPA (Java Pe
    <property name="javax.persistence.jdbc.password" value="sua_senha" />
    ```
 5. Execute o projeto na sua IDE ou use o comando Maven para iniciar a aplicação.
-Recursos e Funcionalidades
 
 ### Recursos e Funcionalidades
 
@@ -33,3 +32,8 @@ Recursos e Funcionalidades
 ### Contribuição
 
 Contribuições são bem-vindas! Se você tiver sugestões, correções de bugs ou melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+### Demonstração
+
+[https://github.com/luizfiliperm/hospital-system/issues/23#issue-1744056725](https://github.com/luizfiliperm/hospital-system/assets/79930607/dd2c2043-3625-4db1-b358-c1c2c026ee84
+)
