@@ -290,32 +290,7 @@ public class MenuController implements Initializable {
 
     public void setFonts(){
         lbHospitalTittle.setFont(LoadFonts.tittleFont(40.0));
-        lbDoctorName.setFont(LoadFonts.commonFont(18.0));
-        lbEspeciality.setFont(LoadFonts.commonFont(18.0));
-        lbCrm.setFont(LoadFonts.commonFont(12.0));
-        lbAgendaDay.setFont(LoadFonts.commonFont(18.0));
-
-        lbRegistredPatients.setFont(LoadFonts.commonFont(80.0));
-        lbRegistredPatientsTittle.setFont(LoadFonts.commonFont(36.0));
-
-        lbPatientListTittle.setFont(LoadFonts.commonFont(20.0));
-        tfSearchPatient.setFont(LoadFonts.commonFont(14.0));
-
-        lbRegisterTitle.setFont(LoadFonts.commonFont(36.0));
-        tfName.setFont(LoadFonts.commonFont(14.0));
-        tfAge.setFont(LoadFonts.commonFont(14.0));
-        tfCellphone.setFont(LoadFonts.commonFont(14.0));
-        lbInfo.setFont(LoadFonts.commonFont(16.0));
-        btRegisterPatient.setFont(LoadFonts.commonFont(20.0));
-
-
-        lbName.setFont(LoadFonts.commonFont(20.0));
-        lbCellPhone.setFont(LoadFonts.commonFont(16.0));
-        lbMrn.setFont(LoadFonts.commonFont(16.0));
-        lbAge.setFont(LoadFonts.commonFont(16.0));
-        lbConfirmDeleteMessage.setFont(LoadFonts.commonFont(17.0));
-        btDelete.setFont(LoadFonts.commonFont(18.0));
-        btCancel.setFont(LoadFonts.commonFont(18.0));
+        
     }
 
     private void configureFields() {
@@ -331,7 +306,6 @@ public class MenuController implements Initializable {
     }
 
     private void configureInfoLabel(Label lbInfo, Patient patient) {
-        lbInfo.setFont(LoadFonts.commonFont(16.0));
         lbInfo.setTextFill(Color.WHITE);
         lbInfo.setLayoutX(14);
         lbInfo.setLayoutY(2);
