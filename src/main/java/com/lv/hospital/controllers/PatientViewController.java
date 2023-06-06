@@ -270,7 +270,11 @@ public class PatientViewController implements Initializable {
 
         updateInfo();
         selectPatientRadioButtons();
-        
+        setFonts();
+    }
+
+    public void setFonts(){
+
     }
 
     public void selectPatientRadioButtons(){

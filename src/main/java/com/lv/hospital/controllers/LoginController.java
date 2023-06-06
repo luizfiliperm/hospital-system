@@ -104,13 +104,7 @@ public class LoginController implements Initializable{
 
     public void setFonts(){
         lbHospitalTittle.setFont(LoadFonts.tittleFont(50.0));
-        btLogin.setFont(LoadFonts.commonFont(18.0));
-        btSignin.setFont(LoadFonts.commonFont(13.0));
-        lbLogin.setFont(LoadFonts.commonFont(36.0));
-        lbInfo.setFont(LoadFonts.commonFont(14.0));
-
-        tfLogin.setFont(LoadFonts.commonFont(18.0));
-        tfPassword.setFont(LoadFonts.commonFont(18.0));
+       
     }
 
 }

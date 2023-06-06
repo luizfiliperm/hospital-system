@@ -28,7 +28,7 @@
             </ImageView>
             <AnchorPane layoutX="-30.0" prefHeight="711.0" prefWidth="261.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" styleClass="apPerfil" stylesheets="@style.css">
                <children>
-                  <Label fx:id="lbDoctorName" layoutX="117.0" layoutY="20.0" prefHeight="27.0" prefWidth="131.0" text="Doctor Name" textFill="WHITE">
+                  <Label fx:id="lbDoctorName" layoutX="117.0" layoutY="15.0" prefHeight="27.0" prefWidth="131.0" text="Doctor Name" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -38,8 +38,8 @@
                         <Image url="@../icons/menu/fi-br-portrait.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="lbEspeciality" layoutX="118.0" layoutY="45.0" prefHeight="17.0" prefWidth="131.0" text="Especialidade" textFill="WHITE" />
-                  <Label fx:id="lbCrm" layoutX="118.0" layoutY="62.0" prefHeight="17.0" prefWidth="131.0" text="CRM" textFill="WHITE" />
+                  <Label fx:id="lbEspeciality" layoutX="117.0" layoutY="40.0" prefHeight="17.0" prefWidth="131.0" text="Especialidade" textFill="WHITE" />
+                  <Label fx:id="lbCrm" layoutX="117.0" layoutY="60.0" prefHeight="17.0" prefWidth="131.0" text="CRM" textFill="WHITE" />
                   <Button fx:id="btLogout" layoutX="39.0" layoutY="665.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: none;">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
@@ -125,7 +125,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <ScrollPane fx:id="spListPatients" layoutX="23.0" layoutY="50.0" prefHeight="269.0" prefWidth="644.0" style="-fx-background-color: none;" styleClass="spListPatients" stylesheets="@style.css" />
+                  <ScrollPane fx:id="spListPatients" layoutX="23.0" layoutY="67.0" prefHeight="252.0" prefWidth="644.0" style="-fx-background-color: none;" styleClass="spListPatients" stylesheets="@style.css" />
                   <TextField fx:id="tfSearchPatient" layoutX="279.0" layoutY="9.0" onKeyTyped="#searchPatient" prefHeight="40.0" prefWidth="417.0" promptText="Pesquisar paciente" style="-fx-background-radius: 50;">
                      <font>
                         <Font size="14.0" />
@@ -139,6 +139,11 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Label layoutX="41.0" layoutY="47.0" prefHeight="17.0" prefWidth="120.0" text="MRN    - Paciente" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="316.0" layoutY="142.0" prefHeight="135.0" prefWidth="730.0" style="-fx-background-color: #0a4164; -fx-background-radius: 30;" styleClass="apCont" stylesheets="@style.css">

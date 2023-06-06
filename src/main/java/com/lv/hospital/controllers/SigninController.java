@@ -154,13 +154,7 @@ public class SigninController implements Initializable{
 
     public void setFonts(){
         lbHospitalTittle.setFont(LoadFonts.tittleFont(50.0));
-        lbSignIn.setFont(LoadFonts.commonFont(36.0));
-        lbInfo.setFont(LoadFonts.commonFont(14.0));
-        btSignIn.setFont(LoadFonts.commonFont(14.0));
-        tfName.setFont(LoadFonts.commonFont(12.0));
-        tfEmail.setFont(LoadFonts.commonFont(12.0));
-        tfPassword.setFont(LoadFonts.commonFont(12.0));
-        tfConfirmPassword.setFont(LoadFonts.commonFont(12.0));
+        
     }
 
 }
