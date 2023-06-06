@@ -44,16 +44,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lv.hospital.controllers.PatientViewController">
    <stylesheets>
       <URL value="@style.css" />
    </stylesheets>
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #B2B7C4;" VBox.vgrow="ALWAYS">
          <children>
+            <ImageView fitHeight="580.0" fitWidth="873.0" layoutX="441.0" layoutY="130.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/logo/logo.png" />
+               </image>
+            </ImageView>
             <AnchorPane layoutX="-13.0" layoutY="-7.0" prefHeight="188.0" prefWidth="593.0" style="-fx-background-radius: 22px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-background-color: #0A4164;">
                <children>
-                  <Label layoutX="137.0" layoutY="59.0" prefHeight="47.0" prefWidth="417.0" text="NOME COMPLETO DO PACIENTE" textFill="WHITE">
+                  <Label fx:id="lbPatientName" layoutX="137.0" layoutY="59.0" prefHeight="47.0" prefWidth="417.0" text="NOME COMPLETO DO PACIENTE" textFill="WHITE">
                      <font>
                         <Font size="27.0" />
                      </font>
@@ -68,17 +73,17 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="206.0" layoutY="94.0" text="(99) 9 9999-9999" textFill="WHITE">
+                  <Label fx:id="lbPatientPhone" layoutX="206.0" layoutY="94.0" text="(99) 9 9999-9999" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="335.0" layoutY="94.0" text="NPM:" textFill="WHITE">
+                  <Label layoutX="335.0" layoutY="94.0" text="MRN:" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="385.0" layoutY="94.0" text="00000001" textFill="WHITE">
+                  <Label fx:id="lbPatientMrn" layoutX="381.0" layoutY="94.0" text="00000001" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -88,19 +93,26 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="510.0" layoutY="94.0" text="71" textFill="WHITE">
+                  <Label fx:id="lbPatientAge" layoutX="510.0" layoutY="94.0" text="71" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/util/fi-br-angle-left.png" />
-                     </image>
+                  <Button fx:id="btBack" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMenu" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/util/fi-br-angle-left.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImageView>
+                  </Button>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="655.0" layoutY="33.0" prefHeight="120.0" prefWidth="397.0" style="-fx-background-color: #6DA5D2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-background-radius: 29px;">
@@ -110,101 +122,162 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="174.0" layoutY="37.0" prefHeight="47.0" prefWidth="50.0" text="12">
+                  <Label fx:id="lbTestPontuation" alignment="CENTER" layoutX="174.0" layoutY="37.0" prefHeight="47.0" prefWidth="50.0" text="-">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="112.0" layoutY="84.0" prefHeight="21.0" prefWidth="175.0" text="Coma Superficial">
+                  <Label fx:id="lbTestResult" alignment="CENTER" layoutX="112.0" layoutY="84.0" prefHeight="21.0" prefWidth="175.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="359.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/patient/fi-br-info.png" />
-                     </image>
+                  <Button fx:id="btInfo" layoutX="343.0" layoutY="5.0" mnemonicParsing="false" onAction="#openInfo" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/patient/fi-br-info.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                  </ImageView>
+                  </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="10.0" layoutY="232.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
+            <AnchorPane layoutX="12.0" layoutY="195.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
    <children>
       <Label layoutX="74.0" layoutY="14.0" text="Abertura Ocular" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="eyeOpenSpontaneous" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Espontânea" textFill="WHITE">
+      <RadioButton fx:id="eyeOpenSpontaneous" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" onAction="#setEyeOpening" prefHeight="17.0" prefWidth="175.0" text="Espontânea" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="eyeOpening" />
          </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
       </RadioButton>
-      <RadioButton fx:id="eyeOpenVoice" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="À Voz" textFill="WHITE" toggleGroup="$eyeOpening" />
-      <RadioButton fx:id="eyeOpenPain" layoutX="33.0" layoutY="130.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="À Dor" textFill="WHITE" toggleGroup="$eyeOpening" />
-      <RadioButton fx:id="eyeOpenNone" layoutX="33.0" layoutY="157.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$eyeOpening" />
+      <RadioButton fx:id="eyeOpenVoice" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" onAction="#setEyeOpening" prefHeight="17.0" prefWidth="175.0" text="À Voz" textFill="WHITE" toggleGroup="$eyeOpening">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="eyeOpenPain" layoutX="33.0" layoutY="132.0" mnemonicParsing="false" onAction="#setEyeOpening" prefHeight="17.0" prefWidth="175.0" text="À Dor" textFill="WHITE" toggleGroup="$eyeOpening">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="eyeOpenNone" layoutX="33.0" layoutY="165.0" mnemonicParsing="false" onAction="#setEyeOpening" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$eyeOpening">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
    </children>
 </AnchorPane>
 
-            <AnchorPane layoutX="284.0" layoutY="232.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
+            <AnchorPane layoutX="286.0" layoutY="195.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
    <children>
       <Label layoutX="73.0" layoutY="14.0" text="Resposta Verbal" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="verbalResponseOriented" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Orientada" textFill="WHITE">
+      <RadioButton fx:id="verbalResponseOriented" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" onAction="#setVerbalResponse" prefHeight="17.0" prefWidth="175.0" text="Orientada" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="verbalResponse" />
          </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
       </RadioButton>
-      <RadioButton fx:id="verbalResponseConfused" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Confusa" textFill="WHITE" toggleGroup="$verbalResponse" />
-      <RadioButton fx:id="verbalResponseInappropriate" layoutX="33.0" layoutY="130.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Palavras Inapropriadas" textFill="WHITE" toggleGroup="$verbalResponse" />
-      <RadioButton fx:id="verbalResponseIncomprehensible" layoutX="33.0" layoutY="160.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Palavras Incompreensíveis" textFill="WHITE" toggleGroup="$verbalResponse" />
-      <RadioButton fx:id="verbalResponseNone" layoutX="33.0" layoutY="186.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$verbalResponse" />
+      <RadioButton fx:id="verbalResponseConfused" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" onAction="#setVerbalResponse" prefHeight="17.0" prefWidth="175.0" text="Confusa" textFill="WHITE" toggleGroup="$verbalResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="verbalResponseInappropriate" layoutX="33.0" layoutY="132.0" mnemonicParsing="false" onAction="#setVerbalResponse" prefHeight="17.0" prefWidth="175.0" text="Palavras Inapropriadas" textFill="WHITE" toggleGroup="$verbalResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="verbalResponseIncomprehensible" layoutX="33.0" layoutY="165.0" mnemonicParsing="false" onAction="#setVerbalResponse" prefHeight="17.0" prefWidth="175.0" text="Palavras Incompreensíveis" textFill="WHITE" toggleGroup="$verbalResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="verbalResponseNone" layoutX="33.0" layoutY="198.0" mnemonicParsing="false" onAction="#setVerbalResponse" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$verbalResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
    </children>
 </AnchorPane>
 
-            <AnchorPane layoutX="556.0" layoutY="232.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
+            <AnchorPane layoutX="558.0" layoutY="195.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
    <children>
       <Label layoutX="70.0" layoutY="14.0" text="Resposta Motora" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="motorResponseObey" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Obedece a Comandos" textFill="WHITE">
+      <RadioButton fx:id="motorResponseObey" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Obedece a Comandos" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="motorResponse" />
          </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
       </RadioButton>
-      <RadioButton fx:id="motorResponseLocate" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Localiza a Dor" textFill="WHITE" toggleGroup="$motorResponse" />
-      <RadioButton fx:id="motorResponseWithdrawal" layoutX="33.0" layoutY="130.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Movimentos de Retirada" textFill="WHITE" toggleGroup="$motorResponse" />
-      <RadioButton fx:id="motorResponseAbnormalFlexion" layoutX="33.0" layoutY="160.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Flexão Anormal" textFill="WHITE" toggleGroup="$motorResponse" />
-      <RadioButton fx:id="motorResponseAbnormalExtension" layoutX="33.0" layoutY="187.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Extensão Anormal" textFill="WHITE" toggleGroup="$motorResponse" />
-      <RadioButton fx:id="motorResponseNone" layoutX="33.0" layoutY="217.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$motorResponse" />
+      <RadioButton fx:id="motorResponseLocatePain" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Localiza a Dor" textFill="WHITE" toggleGroup="$motorResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="motorResponseWithdrawal" layoutX="33.0" layoutY="132.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Movimentos de Retirada" textFill="WHITE" toggleGroup="$motorResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="motorResponseAnormalFlexion" layoutX="33.0" layoutY="165.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Flexão Anormal" textFill="WHITE" toggleGroup="$motorResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="motorResponseAnormalExtension" layoutX="33.0" layoutY="198.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Extensão Anormal" textFill="WHITE" toggleGroup="$motorResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="motorResponseNone" layoutX="33.0" layoutY="231.0" mnemonicParsing="false" onAction="#setMotorResponse" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$motorResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
    </children>
 </AnchorPane>
 
-           <AnchorPane layoutX="826.0" layoutY="232.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
+           <AnchorPane layoutX="828.0" layoutY="195.0" prefHeight="420.0" prefWidth="260.0" style="-fx-background-color: #0A4164; -fx-background-radius: 10px;">
    <children>
       <Label layoutX="71.0" layoutY="14.0" text="Resposta Pupilar" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="eyeResponseBilateral" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Reação Bilateral" textFill="WHITE">
-         <toggleGroup>
-            <ToggleGroup fx:id="eyeResponse" />
-         </toggleGroup>
+      <RadioButton fx:id="pupilResponseBilateral" layoutX="33.0" layoutY="67.0" mnemonicParsing="false" onAction="#setPupilResponse" prefHeight="17.0" prefWidth="175.0" text="Reação Bilateral" textFill="WHITE">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="pupilResponse" />
+                     </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
       </RadioButton>
-      <RadioButton fx:id="eyeResponseUnilateral" layoutX="33.0" layoutY="94.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Reação Unilateral" textFill="WHITE" toggleGroup="$eyeResponse" />
-      <RadioButton fx:id="eyeResponseNone" layoutX="33.0" layoutY="125.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$eyeResponse" />
+      <RadioButton fx:id="pupilResponseUnilateral" layoutX="33.0" layoutY="99.0" mnemonicParsing="false" onAction="#setPupilResponse" prefHeight="17.0" prefWidth="175.0" text="Reação Unilateral" textFill="WHITE" toggleGroup="$pupilResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
+      <RadioButton fx:id="pupilResponseNone" layoutX="33.0" layoutY="132.0" mnemonicParsing="false" onAction="#setPupilResponse" prefHeight="17.0" prefWidth="175.0" text="Nenhuma" textFill="WHITE" toggleGroup="$pupilResponse">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></RadioButton>
    </children>
 </AnchorPane>
 
-            <Button layoutX="834.0" layoutY="703.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="245.0" style="-fx-background-color: #6DA5D2; -fx-background-radius: 38px;" styleClass="saveButton" text="Salvar Formulário">
+            <Button fx:id="btSaveForm" layoutX="836.0" layoutY="626.0" mnemonicParsing="false" onAction="#saveForm" prefHeight="54.0" prefWidth="245.0" style="-fx-background-color: #6DA5D2; -fx-background-radius: 38px;" styleClass="saveButton" text="Salvar Formulário">
                <font>
                   <Font size="15.0" />
                </font>
@@ -212,15 +285,210 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="277.0" layoutY="718.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;" />
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1062.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/util/fi-bs-cross.png" />
-               </image>
+            <Button fx:id="btClose" layoutX="1046.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/util/fi-bs-cross.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
+               </cursor></Button>
+            <AnchorPane fx:id="apInfoGlasgow" disable="true" layoutX="79.0" layoutY="52.0" prefHeight="620.0" prefWidth="935.0" style="-fx-background-color: #B2B7C4; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3); -fx-background-radius: 20;" visible="false">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/logo/logo-2.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="137.0" layoutY="28.0" text="Pontuação na escala de Glasgow">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="72.0" layoutY="117.0" prefHeight="305.0" prefWidth="804.0" style="-fx-background-color: #0A4164; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                     <children>
+                        <Label layoutX="70.0" layoutY="30.0" text="Abertura Ocular" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="70.0" text="4  Espontânea" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="100.0" prefHeight="20.0" prefWidth="87.0" text="3  À voz" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="130.0" prefHeight="20.0" prefWidth="87.0" text="4  À dor" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="60.0" layoutY="160.0" prefHeight="20.0" prefWidth="87.0" text="1  Nenhuma" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="244.0" layoutY="30.0" text="Resposta Verbal" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="218.0" layoutY="70.0" prefHeight="20.0" prefWidth="165.0" text="5  Orientada" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="218.0" layoutY="100.0" prefHeight="20.0" prefWidth="165.0" text="4  Confusa" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="218.0" layoutY="130.0" prefHeight="20.0" prefWidth="165.0" text="3  Palavras Inapropriadas" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="219.0" layoutY="190.0" prefHeight="20.0" prefWidth="165.0" text="1  Nenhuma" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="432.0" layoutY="30.0" text="Resposta Motora" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="70.0" prefHeight="20.0" prefWidth="165.0" text="6  Obedece a comandos" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="100.0" prefHeight="20.0" prefWidth="165.0" text="5  Localiza a dor" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="130.0" prefHeight="20.0" prefWidth="165.0" text="4  Movimentos de retirada" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="160.0" prefHeight="20.0" prefWidth="165.0" text="3  Flexão Anormal" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="190.0" prefHeight="20.0" prefWidth="165.0" text="2  Extensão Anormal" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="410.0" layoutY="220.0" prefHeight="20.0" prefWidth="165.0" text="1  Nenhuma" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="626.0" layoutY="31.0" text="Resposta Pupilar" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="600.0" layoutY="71.0" prefHeight="20.0" prefWidth="165.0" text="-2  Reação Bilateral" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="600.0" layoutY="101.0" prefHeight="20.0" prefWidth="165.0" text="-1  Reação Unilateral" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="600.0" layoutY="131.0" prefHeight="20.0" prefWidth="165.0" text="0  Nenhuma" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="218.0" layoutY="160.0" prefHeight="20.0" prefWidth="184.0" text="2  Palavras Incompreensíveis" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="90.0" layoutY="429.0" text="Resultados:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="464.0" text="&lt;= 3  Coma Profundo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="494.0" text="&lt;= 4  Coma Severo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="524.0" text="&lt;= 7  Coma Moderado">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="88.0" layoutY="551.0" text="&lt;= 11 Coma Superficial">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="88.0" layoutY="578.0" text="&lt;= 12 Normal">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btCloseInfo" layoutX="873.0" layoutY="13.0" mnemonicParsing="false" onAction="#closeInfo" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/util/fi-bs-cross.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apErrorPopUp" disable="true" layoutX="278.0" layoutY="259.0" prefHeight="206.0" prefWidth="544.0" style="-fx-background-color: #6DA5D2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3); -fx-background-radius: 20;" visible="false">
+               <children>
+                  <Label layoutX="98.0" layoutY="53.0" text="Por favor Selecione Todos os Campos">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btClosePopUp" layoutX="150.0" layoutY="110.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="54.0" prefWidth="245.0" style="-fx-background-color: #DB0519; -fx-background-radius: 38px;" styleClass="closePopUpButton" stylesheets="@style.css" text="OK" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

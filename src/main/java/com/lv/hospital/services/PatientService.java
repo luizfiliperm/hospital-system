@@ -20,9 +20,7 @@ public class PatientService {
         em = emf.createEntityManager();
     }
     
-    public void save(Patient patient, Long doctorId) {
-        
-        Doctor doctor = em.find(Doctor.class, doctorId);
+    public void save(Patient patient, Doctor doctor) {
         
         if(doctor != null){
             patient.setDoctor(doctor);
@@ -63,6 +61,7 @@ public class PatientService {
 
 
         if(existingGcs == null){
+            gcs.updateData();
             p.setGlasgowComaScale(gcs);
         }else{
             existingGcs.setEyeOpening(gcs.getEyeOpening());
@@ -73,6 +72,12 @@ public class PatientService {
         }
         em.merge(p);
         em.getTransaction().commit();
+    }
+
+    public Boolean patientExists(String name){
+        return em.createQuery("SELECT p FROM Patient p WHERE p.name = :name", Patient.class)
+            .setParameter("name", name)
+            .getResultList().size() > 0;
     }
 
     public List<Patient> findAllByDoctorId(Long doctorId) {
