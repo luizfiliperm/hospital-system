@@ -41,4 +41,7 @@ crashlytics-build.properties
 
 # Class files
 target
+
+# Vs code template
+.vscode/*
 # Created by .ignore support plugin (hsz.mobi)

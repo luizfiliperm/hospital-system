@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lv.hospital.controllers.LoginController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" style="-fx-background-color: B2B7C4;" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="642.0" fitWidth="678.0" layoutX="-230.0" layoutY="26.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/logo/logo-2.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btClose" layoutX="1052.0" layoutY="8.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: none;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/util/fi-bs-cross.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="lbHospitalTittle" alignment="CENTER" layoutX="6.0" layoutY="62.0" prefHeight="225.0" prefWidth="565.0" styleClass="tittleHospital" stylesheets="@style.css" text="Raccoon General Hospital" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="570.0" layoutY="32.0" prefHeight="626.0" prefWidth="492.0" style="-fx-background-color: #0a4164; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+               <children>
+                  <Button fx:id="btLogin" layoutX="154.0" layoutY="514.0" mnemonicParsing="false" onAction="#login" prefHeight="32.0" prefWidth="191.0" style="-fx-background-color: #6da5d2; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 3, 3);" styleClass="loginButton" stylesheets="@style.css" text="Entrar" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btSignin" layoutX="157.0" layoutY="563.0" mnemonicParsing="false" onAction="#signIn" prefHeight="27.0" prefWidth="185.0" style="-fx-background-color: none;" styleClass="registerButton" stylesheets="@style.css" text="Cadastre-se" textFill="#b2b7c4">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label fx:id="lbLogin" alignment="CENTER" layoutX="88.0" layoutY="110.0" prefHeight="53.0" prefWidth="317.0" text="Login" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfLogin" layoutX="90.0" layoutY="297.0" prefHeight="33.0" prefWidth="317.0" promptText="CRM or Email" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);" AnchorPane.leftAnchor="90.0">
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding></TextField>
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="96.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="96.0">
+                     <image>
+                        <Image url="@../icons/register/fi-br-doctor.png" />
+                     </image>
+                  </ImageView>
+                  <PasswordField fx:id="tfPassword" layoutX="90.0" layoutY="361.0" prefHeight="33.0" prefWidth="317.0" promptText="Password" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 3, 3);">
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding></PasswordField>
+                  <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="96.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/register/fi-br-lock.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lbInfo" alignment="CENTER" disable="true" layoutX="93.0" layoutY="454.0" prefHeight="17.0" prefWidth="306.0" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
