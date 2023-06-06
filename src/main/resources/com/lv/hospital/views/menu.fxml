@@ -184,17 +184,17 @@
                         <Image url="@../icons/patient/fi-br-sad.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="lbCellPhone" layoutX="88.0" layoutY="54.0" prefHeight="25.0" prefWidth="95.0" text="Numero" textFill="WHITE">
+                  <Label fx:id="lbCellPhone" layoutX="88.0" layoutY="54.0" prefHeight="25.0" prefWidth="118.0" text="(88) 98323-2321" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbMrn" layoutX="185.0" layoutY="54.0" prefHeight="25.0" prefWidth="70.0" text="Mrn" textFill="WHITE">
+                  <Label fx:id="lbMrn" layoutX="206.0" layoutY="54.0" prefHeight="25.0" prefWidth="102.0" text="Mrn: 000008" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbAge" layoutX="257.0" layoutY="54.0" prefHeight="25.0" prefWidth="95.0" text="Idade: 71" textFill="WHITE">
+                  <Label fx:id="lbAge" layoutX="308.0" layoutY="54.0" prefHeight="25.0" prefWidth="80.0" text="Idade: 71" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
